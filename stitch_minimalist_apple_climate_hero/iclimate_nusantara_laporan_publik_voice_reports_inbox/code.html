@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Laporan Publik (Voice Reports Inbox)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-hairline {
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .apple-divider-y > * + * {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .sidebar-nav-active {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+    .trend-pill-urgent {
+      background-color: rgba(232, 93, 42, 0.12);
+      color: #A8350E;
+    }
+    .report-item-active {
+      background-color: #F5F5F7;
+      border-radius: 14px;
+    }
+    .report-list-title {
+      font-size: 15px;
+      line-height: 21px;
+      letter-spacing: -0.01em;
+    }
+    .inspector-title {
+      font-size: 22px;
+      line-height: 28px;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+    .evidence-frame {
+      border-radius: 16px;
+    }
+    .checklist-box {
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .apple-glass-bar {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(13, 16, 14, 0.65);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <div class="min-h-[1024px] w-full bg-canvas p-md flex flex-col lg:flex-row gap-lg" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- ===================================================================
+         LEFT FLOATING SIDEBAR: 240px Deep Obsidian (#0D100E), 24px Radius
+         =================================================================== -->
+    <aside aria-label="Navigasi Admin ICLIMATE" class="w-full lg:w-[240px] shrink-0 bg-obsidian rounded-xl p-lg flex flex-col justify-between gap-xl lg:min-h-[calc(1024px-32px)]" data-stitch-vh="lg:min-h-[calc(1024px-32px)]===lg:min-h-[calc(100vh-32px)]">
+
+      <div class="flex flex-col gap-xl">
+        <!-- Top Brand Header -->
+        <div class="flex items-center justify-between gap-sm">
+          <span class="font-title text-title-sm text-on-obsidian font-bold tracking-tight">ICLIMATE</span>
+          <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs uppercase tracking-wider">ADMIN</span>
+        </div>
+
+        <!-- Clean Navigation Menu -->
+        <nav class="flex flex-col gap-xs" aria-label="Menu Ruang Kendali">
+          <a href="../admin-dashboard/AdminDashboard.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">dashboard</span>
+              <span>Overview</span>
+            </span>
+          </a>
+
+          <a href="../admin-stories/AdminStories.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">article</span>
+              <span>Stories &amp; Viral</span>
+            </span>
+            <span class="bg-primary/10 text-muted-dark rounded-full px-sm py-xs font-label text-label-xs tabular-nums">24</span>
+          </a>
+
+          <a href="../admin-movements/AdminMovements.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">campaign</span>
+              <span>Movements &amp; Petisi</span>
+            </span>
+          </a>
+
+          <a href="#laporan-publik" class="sidebar-nav-active flex items-center justify-between rounded px-md py-sm text-on-obsidian font-label text-label-lg transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">inbox</span>
+              <span>Laporan Publik</span>
+            </span>
+            <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs tabular-nums">5</span>
+          </a>
+
+          <a href="../about-sources/AboutSources.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">database</span>
+              <span>Sumber Data &amp; Edukasi</span>
+            </span>
+          </a>
+
+          <a href="../admin-dashboard/AdminDashboard.html#pengaturan-home" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">tune</span>
+              <span>Pengaturan Home &amp; Tim</span>
+            </span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Admin Profile Strip -->
+      <div class="pt-md border-t border-outline/40 flex items-center justify-between gap-sm">
+        <div class="flex items-center gap-sm min-w-0">
+          <div class="w-9 h-9 rounded-full bg-surface-container text-on-surface-container flex items-center justify-center font-label text-label-sm font-semibold shrink-0">
+            AR
+          </div>
+          <div class="min-w-0">
+            <p class="font-body text-body-sm text-on-obsidian font-medium m-0 truncate">Arif</p>
+            <p class="font-label text-label-xs text-muted-dark m-0 truncate">Superadmin</p>
+          </div>
+        </div>
+        <a href="../admin-login/AdminLogin.html" title="Keluar" aria-label="Keluar dari Ruang Kendali" class="w-8 h-8 rounded-full inline-flex items-center justify-center text-muted-dark hover:text-on-obsidian hover:bg-primary/10 transition-colors shrink-0">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">logout</span>
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- ===================================================================
+         MAIN WORKSPACE CANVAS: Apple Off-White (#F5F5F7)
+         =================================================================== -->
+    <main class="flex-1 min-w-0 py-sm pr-sm flex flex-col gap-lg">
+
+      <!-- Top Workspace Header + Filter Pills -->
+      <header class="flex flex-col gap-md">
+        <div class="flex flex-col gap-xs">
+          <h1 class="font-headline text-headline-xl-mobile text-ink m-0 text-balance">
+            Laporan Publik (Raise Your Voice).
+          </h1>
+          <p class="font-body text-body-sm text-muted m-0">
+            Verifikasi bukti lapangan dari masyarakat sebelum dipublikasikan sebagai cerita atau peringatan dini.
+          </p>
+        </div>
+
+        <nav aria-label="Filter status laporan publik" class="flex flex-wrap items-center gap-sm">
+          <button type="button" class="report-filter-tab rounded-full px-md py-sm bg-ink text-on-ink font-label text-label-sm font-semibold transition-colors">
+            Menunggu Verifikasi (5)
+          </button>
+          <button type="button" class="report-filter-tab apple-hairline rounded-full px-md py-sm bg-primary text-ink font-label text-label-sm font-medium hover:bg-canvas transition-colors">
+            Sedang Dicek Satelit (2)
+          </button>
+          <button type="button" class="report-filter-tab apple-hairline rounded-full px-md py-sm bg-primary text-ink font-label text-label-sm font-medium hover:bg-canvas transition-colors">
+            Disetujui &amp; Tayang (18)
+          </button>
+          <button type="button" class="report-filter-tab apple-hairline rounded-full px-md py-sm bg-primary text-ink font-label text-label-sm font-medium hover:bg-canvas transition-colors">
+            Ditolak (4)
+          </button>
+        </nav>
+      </header>
+
+      <!-- Split-View Master-Detail Workspace (42% Left Queue / 58% Right Inspector, 24px gap) -->
+      <div class="grid grid-cols-1 xl:grid-cols-[0.72fr_1fr] gap-lg items-start">
+
+        <!-- ===============================================================
+             LEFT PANEL: Incoming Reports Queue (20px squircle, 16px padding)
+             =============================================================== -->
+        <section aria-label="Antrean Laporan Masuk" class="apple-hairline bg-primary rounded-md p-md flex flex-col">
+          <div class="apple-divider-y flex flex-col">
+
+            <!-- Item 1 (Active Selected) -->
+            <button type="button" data-report-id="0" class="report-queue-item report-item-active w-full text-left p-md flex flex-col gap-xs transition-colors">
+              <div class="flex items-center justify-between gap-sm">
+                <span class="inline-flex items-center rounded-full bg-surface-container text-on-surface-container px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                  FOR THE FOREST
+                </span>
+                <span class="inline-flex items-center gap-xs font-label text-label-xs text-alert-ink font-semibold uppercase tracking-wider">
+                  <span class="w-1.5 h-1.5 rounded-full bg-alert-ink"></span>
+                  <span>BARU</span>
+                </span>
+              </div>
+              <h2 class="report-list-title font-body font-bold text-ink m-0 text-pretty">
+                Pembukaan lahan gambut di pinggir kawasan konservasi
+              </h2>
+              <p class="font-label text-label-sm text-muted m-0">
+                Kab. Kotawaringin Timur, Kalteng • 18 menit lalu
+              </p>
+            </button>
+
+            <!-- Item 2 -->
+            <button type="button" data-report-id="1" class="report-queue-item w-full text-left p-md flex flex-col gap-xs hover:bg-canvas/60 transition-colors">
+              <div>
+                <span class="inline-flex items-center rounded-full bg-canvas text-ink px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                  FOR THE PEOPLE
+                </span>
+              </div>
+              <h2 class="report-list-title font-body font-semibold text-ink m-0 text-pretty">
+                Abrasi pesisir merendam akses jalan utama desa nelayan
+              </h2>
+              <p class="font-label text-label-sm text-muted m-0">
+                Demak, Jawa Tengah • 2 jam lalu
+              </p>
+            </button>
+
+            <!-- Item 3 -->
+            <button type="button" data-report-id="2" class="report-queue-item w-full text-left p-md flex flex-col gap-xs hover:bg-canvas/60 transition-colors">
+              <div>
+                <span class="inline-flex items-center rounded-full bg-accent/15 text-ink px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                  FOR THE ANIMAL
+                </span>
+              </div>
+              <h2 class="report-list-title font-body font-semibold text-ink m-0 text-pretty">
+                Penampakan satwa liar keluar hutan akibat kekeringan
+              </h2>
+              <p class="font-label text-label-sm text-muted m-0">
+                Pandeglang, Banten • 5 jam lalu
+              </p>
+            </button>
+
+            <!-- Item 4 -->
+            <button type="button" data-report-id="3" class="report-queue-item w-full text-left p-md flex flex-col gap-xs hover:bg-canvas/60 transition-colors">
+              <div>
+                <span class="inline-flex items-center rounded-full bg-surface-container text-on-surface-container px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                  FOR THE FOREST
+                </span>
+              </div>
+              <h2 class="report-list-title font-body font-semibold text-ink m-0 text-pretty">
+                Asap pekat mulai tercium di jalur lintas provinsi
+              </h2>
+              <p class="font-label text-label-sm text-muted m-0">
+                Ogan Komering Ilir, Sumsel • 9 jam lalu
+              </p>
+            </button>
+
+          </div>
+        </section>
+
+        <!-- ===============================================================
+             RIGHT PANEL: Verification Inspector & Evidence Reviewer (32px pad)
+             =============================================================== -->
+        <section aria-label="Inspektur Verifikasi Laporan" class="apple-hairline bg-primary rounded-md p-xl flex flex-col gap-lg">
+
+          <!-- Top Report Header -->
+          <header class="flex flex-col gap-sm">
+            <div class="flex flex-wrap items-center gap-sm">
+              <span id="ins-pillar" class="inline-flex items-center rounded-full bg-surface-container text-on-surface-container px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                FOR THE FOREST
+              </span>
+              <span class="trend-pill-urgent rounded-full px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                MENUNGGU VERIFIKASI
+              </span>
+            </div>
+
+            <h2 id="ins-title" class="inspector-title font-headline text-ink m-0 text-balance">
+              Pembukaan lahan gambut di pinggir kawasan konservasi
+            </h2>
+
+            <div class="flex flex-wrap items-center gap-x-md gap-y-xs font-label text-label-sm text-muted">
+              <span id="ins-location">Lokasi: Kab. Kotawaringin Timur, Kalimantan Tengah</span>
+              <span aria-hidden="true">•</span>
+              <span id="ins-time">Dikirim: 18 menit lalu</span>
+              <span class="inline-flex items-center gap-xs rounded-full bg-canvas text-ink px-sm py-xs font-label text-label-xs">
+                <span class="material-symbols-outlined text-body-sm" aria-hidden="true">shield</span>
+                <span>Identitas Pelapor: Dirahasiakan (Anonim)</span>
+              </span>
+            </div>
+          </header>
+
+          <!-- Visual Evidence Preview (16px rounded media frame, height 200px) -->
+          <div class="evidence-frame relative w-full h-[200px] overflow-hidden bg-obsidian">
+            <img id="ins-image" src="https://lh3.googleusercontent.com/aida/ALJJyrCGZnN1A48v4pCBiMuvhQaF6j7MyDAMTL-soiF4EvrP8R8gBBVv5Bl_ocFz3XYr82WSVXNBJAQpS1j19OJBsLFgGYwWpZKe-j8y_fYGDH4Pcvwgn-Lv77oTqZVyqv6AH7xl8kVDBEmnoFVdyv6Aph09I5mMLYvUNFuYo4wm9B62tYqbYxDfzZHsR5DBeJJrl5PEZF6OJFWMehWUibQ0wmehZlHDjyQNNaM209nHBfOcSDYoPBfE5CPp-FjnJco" alt="Foto bukti lapangan pembukaan lahan gambut berasap saat senja" class="w-full h-full object-cover object-center">
+            <div class="apple-glass-bar absolute inset-x-0 bottom-0 px-md py-sm flex items-center justify-between gap-sm">
+              <span id="ins-meta" class="font-label text-label-xs text-primary tabular-nums">
+                IMG_4092.JPG • GPS Terverifikasi (-2.5341, 112.9482) • 4.2 MB
+              </span>
+              <span class="material-symbols-outlined text-body-md text-primary shrink-0" aria-hidden="true">verified</span>
+            </div>
+          </div>
+
+          <!-- Chronology Excerpt -->
+          <p id="ins-excerpt" class="font-body text-body-sm text-ink/80 leading-relaxed m-0 text-pretty">
+            Alat berat mulai masuk sejak tiga hari lalu di area penyangga gambut. Asap pembakaran semak mulai muncul setiap sore menjelang malam.
+          </p>
+
+          <!-- 3-Step Credibility Checklist (#F5F5F7 box, 16px radius, 20px padding) -->
+          <div class="checklist-box bg-canvas flex flex-col gap-sm">
+            <span class="font-label text-label-xs text-muted uppercase tracking-wider">Daftar Periksa Kredibilitas</span>
+
+            <label class="flex items-center gap-sm cursor-pointer">
+              <input type="checkbox" checked class="rounded-sm border-ink/20 text-ink focus:ring-0">
+              <span class="font-body text-body-sm text-ink">01. Verifikasi metadata waktu &amp; koordinat lokasi visual</span>
+            </label>
+
+            <label class="flex items-center gap-sm cursor-pointer">
+              <input type="checkbox" checked class="rounded-sm border-ink/20 text-ink focus:ring-0">
+              <span class="font-body text-body-sm text-ink">02. Pencocokan dengan data satelit NASA FIRMS / Sipongi</span>
+            </label>
+
+            <label class="flex items-center gap-sm cursor-pointer">
+              <input type="checkbox" class="rounded-sm border-ink/20 text-ink focus:ring-0">
+              <span class="font-body text-body-sm text-ink">03. Konfirmasi konteks lapangan &amp; kelayakan publikasi</span>
+            </label>
+          </div>
+
+          <!-- Bottom Action Bar -->
+          <footer class="pt-md border-t border-ink/5 flex flex-wrap items-center justify-between gap-md">
+            <button type="button" id="reject-report-btn" class="h-10 inline-flex items-center justify-center rounded-full px-md font-label text-label-sm font-semibold text-alert-ink hover:bg-canvas transition-colors">
+              Tolak Laporan
+            </button>
+
+            <div class="flex flex-wrap items-center gap-sm">
+              <button type="button" id="satellite-check-btn" class="apple-hairline h-10 inline-flex items-center justify-center rounded-full bg-primary text-ink px-lg font-label text-label-sm font-semibold hover:bg-canvas transition-colors">
+                Tandai Cek Satelit
+              </button>
+              <a href="../admin-article-editor/AdminArticleEditor.html" class="h-10 inline-flex items-center justify-center gap-xs rounded-full bg-ink text-on-ink px-lg font-label text-label-sm font-semibold hover:bg-obsidian transition-colors">
+                <span>Setujui &amp; Jadikan Artikel</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </footer>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    (function () {
+      const reports = [
+        {
+          pillar: 'FOR THE FOREST',
+          title: 'Pembukaan lahan gambut di pinggir kawasan konservasi',
+          location: 'Lokasi: Kab. Kotawaringin Timur, Kalimantan Tengah',
+          time: 'Dikirim: 18 menit lalu',
+          image: '../../images/pillar_forest_smoke.jpg',
+          meta: 'IMG_4092.JPG • GPS Terverifikasi (-2.5341, 112.9482) • 4.2 MB',
+          excerpt: 'Alat berat mulai masuk sejak tiga hari lalu di area penyangga gambut. Asap pembakaran semak mulai muncul setiap sore menjelang malam.'
+        },
+        {
+          pillar: 'FOR THE PEOPLE',
+          title: 'Abrasi pesisir merendam akses jalan utama desa nelayan',
+          location: 'Lokasi: Demak, Jawa Tengah',
+          time: 'Dikirim: 2 jam lalu',
+          image: '../../images/demak_coastline_erosion.jpg',
+          meta: 'IMG_3819.JPG • GPS Terverifikasi (-6.8904, 110.6382) • 3.8 MB',
+          excerpt: 'Gelombang pasang pagi tadi kembali mengikis tanggul darurat dan merendam jalan penghubung antardusun setinggi lutut orang dewasa.'
+        },
+        {
+          pillar: 'FOR THE ANIMAL',
+          title: 'Penampakan satwa liar keluar hutan akibat kekeringan',
+          location: 'Lokasi: Pandeglang, Banten',
+          time: 'Dikirim: 5 jam lalu',
+          image: '../../images/pillar_animal_rhino.jpg',
+          meta: 'IMG_2941.JPG • GPS Terverifikasi (-6.7421, 105.3742) • 5.1 MB',
+          excerpt: 'Warga di perbatasan zona penyangga mendapati beberapa satwa mendekati aliran sungai kering mencari sumber air bersih.'
+        },
+        {
+          pillar: 'FOR THE FOREST',
+          title: 'Asap pekat mulai tercium di jalur lintas provinsi',
+          location: 'Lokasi: Ogan Komering Ilir, Sumatera Selatan',
+          time: 'Dikirim: 9 jam lalu',
+          image: '../../images/nusantara_rainforest_twilight.jpg',
+          meta: 'IMG_1104.JPG • GPS Terverifikasi (-3.3942, 104.8421) • 2.9 MB',
+          excerpt: 'Jarak pandang menurun hingga di bawah 150 meter pada dini hari akibat kabut asap dari lahan kering di sisi timur jalan.'
+        }
+      ];
+
+      const queueItems = document.querySelectorAll('.report-queue-item');
+      queueItems.forEach(function (item) {
+        item.addEventListener('click', function () {
+          const data = reports[Number(item.dataset.reportId)];
+          if (!data) return;
+          queueItems.forEach(function (q) {
+            const active = q === item;
+            q.classList.toggle('report-item-active', active);
+            q.querySelector('h2').classList.toggle('font-bold', active);
+            q.querySelector('h2').classList.toggle('font-semibold', !active);
+          });
+          document.getElementById('ins-pillar').textContent = data.pillar;
+          document.getElementById('ins-title').textContent = data.title;
+          document.getElementById('ins-location').textContent = data.location;
+          document.getElementById('ins-time').textContent = data.time;
+          document.getElementById('ins-image').src = data.image;
+          document.getElementById('ins-meta').textContent = data.meta;
+          document.getElementById('ins-excerpt').textContent = data.excerpt;
+        });
+      });
+
+      const filterTabs = document.querySelectorAll('.report-filter-tab');
+      filterTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          filterTabs.forEach(function (t) {
+            const active = t === tab;
+            t.classList.toggle('bg-ink', active);
+            t.classList.toggle('text-on-ink', active);
+            t.classList.toggle('font-semibold', active);
+            t.classList.toggle('bg-primary', !active);
+            t.classList.toggle('text-ink', !active);
+            t.classList.toggle('font-medium', !active);
+            t.classList.toggle('apple-hairline', !active);
+          });
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

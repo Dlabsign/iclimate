@@ -1,0 +1,513 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Tulis Cerita Baru (Article Editor)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-hairline {
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .sidebar-nav-active {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+    .apple-input {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .apple-input:focus {
+      outline: none;
+      border-color: #1D1D1F;
+      box-shadow: 0 0 0 3px rgba(29, 29, 31, 0.08);
+    }
+    .apple-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 9999px;
+      background-color: #34C759;
+      padding: 2px;
+      transition: background-color 180ms cubic-bezier(0.2, 0, 0, 1);
+    }
+    .apple-toggle[aria-checked="false"] {
+      background-color: #D1D1D6;
+    }
+    .apple-toggle-knob {
+      width: 20px;
+      height: 20px;
+      border-radius: 9999px;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
+      transform: translateX(18px);
+    }
+    .apple-toggle[aria-checked="false"] .apple-toggle-knob {
+      transform: translateX(0);
+    }
+    .editor-canvas:focus {
+      outline: none;
+    }
+    .scientific-term {
+      border-bottom: 1.5px dashed #1D1D1F;
+      cursor: help;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <div class="min-h-[1024px] w-full bg-canvas p-md flex flex-col lg:flex-row gap-lg" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- ===================================================================
+         LEFT FLOATING SIDEBAR: 240px Deep Obsidian (#0D100E), 24px Radius
+         =================================================================== -->
+    <aside aria-label="Navigasi Admin ICLIMATE" class="w-full lg:w-[240px] shrink-0 bg-obsidian rounded-xl p-lg flex flex-col justify-between gap-xl lg:min-h-[calc(1024px-32px)]" data-stitch-vh="lg:min-h-[calc(1024px-32px)]===lg:min-h-[calc(100vh-32px)]">
+
+      <div class="flex flex-col gap-xl">
+        <!-- Top Brand Header -->
+        <div class="flex items-center justify-between gap-sm">
+          <span class="font-title text-title-sm text-on-obsidian font-bold tracking-tight">ICLIMATE</span>
+          <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs uppercase tracking-wider">ADMIN</span>
+        </div>
+
+        <!-- Clean Navigation Menu -->
+        <nav class="flex flex-col gap-xs" aria-label="Menu Ruang Kendali">
+          <a href="../admin-dashboard/AdminDashboard.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">dashboard</span>
+              <span>Overview</span>
+            </span>
+          </a>
+
+          <a href="../admin-stories/AdminStories.html" class="sidebar-nav-active flex items-center justify-between rounded px-md py-sm text-on-obsidian font-label text-label-lg transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">article</span>
+              <span>Stories &amp; Viral</span>
+            </span>
+            <span class="bg-primary/15 text-on-obsidian rounded-full px-sm py-xs font-label text-label-xs tabular-nums">24</span>
+          </a>
+
+          <a href="../movements-action/MovementsAction.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">campaign</span>
+              <span>Movements &amp; Petisi</span>
+            </span>
+          </a>
+
+          <a href="../admin-dashboard/AdminDashboard.html#laporan-publik" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">inbox</span>
+              <span>Laporan Publik</span>
+            </span>
+            <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs tabular-nums">5</span>
+          </a>
+
+          <a href="../about-sources/AboutSources.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">database</span>
+              <span>Sumber Data &amp; Edukasi</span>
+            </span>
+          </a>
+
+          <a href="../admin-dashboard/AdminDashboard.html#pengaturan-home" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">tune</span>
+              <span>Pengaturan Home &amp; Tim</span>
+            </span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Admin Profile Strip -->
+      <div class="pt-md border-t border-outline/40 flex items-center justify-between gap-sm">
+        <div class="flex items-center gap-sm min-w-0">
+          <div class="w-9 h-9 rounded-full bg-surface-container text-on-surface-container flex items-center justify-center font-label text-label-sm font-semibold shrink-0">
+            AR
+          </div>
+          <div class="min-w-0">
+            <p class="font-body text-body-sm text-on-obsidian font-medium m-0 truncate">Arif</p>
+            <p class="font-label text-label-xs text-muted-dark m-0 truncate">Superadmin</p>
+          </div>
+        </div>
+        <a href="../admin-login/AdminLogin.html" title="Keluar" aria-label="Keluar dari Ruang Kendali" class="w-8 h-8 rounded-full inline-flex items-center justify-center text-muted-dark hover:text-on-obsidian hover:bg-primary/10 transition-colors shrink-0">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">logout</span>
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- ===================================================================
+         MAIN WORKSPACE CANVAS: Apple Off-White (#F5F5F7)
+         =================================================================== -->
+    <main class="flex-1 min-w-0 py-sm pr-sm flex flex-col gap-lg">
+
+      <!-- Top Contextual Editor Header -->
+      <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-md">
+        <div class="flex flex-col gap-xs">
+          <a href="../admin-stories/AdminStories.html" class="inline-flex items-center gap-xs font-label text-label-sm text-muted hover:text-ink transition-colors w-fit">
+            <span aria-hidden="true">←</span>
+            <span>Kembali ke Stories &amp; Viral</span>
+          </a>
+          <div class="flex flex-wrap items-center gap-sm">
+            <h1 class="font-headline text-headline-xl-mobile text-ink m-0 text-balance">
+              Tulis Cerita Baru.
+            </h1>
+            <span id="autosave-status" class="apple-hairline rounded-full bg-primary px-md py-xs font-label text-label-xs text-muted">
+              Draft • Tersimpan otomatis
+            </span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-sm shrink-0">
+          <button type="button" id="save-draft-btn" class="apple-hairline h-11 inline-flex items-center justify-center bg-primary text-ink rounded-full px-lg font-label text-label-lg hover:bg-canvas transition-colors">
+            Simpan Draft
+          </button>
+          <button type="button" id="publish-story-btn" class="h-11 inline-flex items-center justify-center bg-ink text-on-ink rounded-full px-lg font-label text-label-lg hover:bg-obsidian transition-colors">
+            Publikasikan Cerita
+          </button>
+        </div>
+      </header>
+
+      <!-- Asymmetric 2-Column Editor Grid (Left Rich Text Editor / Right Settings Sidebar) -->
+      <div class="grid grid-cols-1 xl:grid-cols-[1.8fr_1fr] gap-lg items-start">
+
+        <!-- ===============================================================
+             LEFT COLUMN: Distraction-Free Rich Text Editor (20px squircle)
+             =============================================================== -->
+        <section aria-label="Editor Artikel Visual" class="apple-hairline bg-primary rounded-md overflow-hidden flex flex-col">
+
+          <!-- Minimalist Formatting Toolbar -->
+          <div class="px-lg py-sm border-b border-ink/5 flex flex-wrap items-center justify-between gap-sm bg-canvas/30">
+            <div class="flex flex-wrap items-center gap-xs">
+              <button type="button" aria-label="Heading" class="h-8 px-sm rounded font-label text-label-sm font-bold text-ink hover:bg-canvas transition-colors">H2</button>
+              <button type="button" aria-label="Tebal" class="w-8 h-8 rounded inline-flex items-center justify-center text-ink hover:bg-canvas transition-colors">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">format_bold</span>
+              </button>
+              <button type="button" aria-label="Miring" class="w-8 h-8 rounded inline-flex items-center justify-center text-ink hover:bg-canvas transition-colors">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">format_italic</span>
+              </button>
+              <button type="button" aria-label="Kutipan" class="w-8 h-8 rounded inline-flex items-center justify-center text-ink hover:bg-canvas transition-colors">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">format_quote</span>
+              </button>
+              <button type="button" aria-label="Daftar" class="w-8 h-8 rounded inline-flex items-center justify-center text-ink hover:bg-canvas transition-colors">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">format_list_bulleted</span>
+              </button>
+              <button type="button" aria-label="Tautan" class="w-8 h-8 rounded inline-flex items-center justify-center text-ink hover:bg-canvas transition-colors">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">link</span>
+              </button>
+              <button type="button" aria-label="Sisipkan Gambar" class="w-8 h-8 rounded inline-flex items-center justify-center text-ink hover:bg-canvas transition-colors">
+                <span class="material-symbols-outlined text-title-md" aria-hidden="true">image</span>
+              </button>
+            </div>
+            <span class="font-label text-label-xs text-muted tabular-nums">420 kata • ~3 menit baca</span>
+          </div>
+
+          <!-- Distraction-Free Writing Canvas -->
+          <div class="p-xl flex flex-col gap-lg">
+            <!-- Headline Input -->
+            <textarea rows="2" aria-label="Judul Artikel" placeholder="Tulis judul cerita yang kuat dan jelas..." class="w-full border-0 p-0 bg-transparent font-headline text-headline-md text-ink placeholder:text-muted/50 focus:ring-0 resize-none">Restorasi Mangrove Pesisir Utara Jawa: Menahan Laju Abrasi 2026</textarea>
+
+            <!-- Lead / Deck Input -->
+            <textarea rows="2" aria-label="Ringkasan Pembuka" placeholder="Ringkasan singkat satu hingga dua kalimat untuk pembuka artikel..." class="w-full border-0 p-0 bg-transparent font-body text-body-lg text-muted placeholder:text-muted/50 focus:ring-0 resize-none">Citra satelit lima tahun terakhir menunjukkan pergeseran garis pantai yang signifikan di sepanjang pesisir Demak, mendorong kolaborasi warga dan peneliti untuk memulihkan sabuk hijau pesisir.</textarea>
+
+            <hr class="border-ink/5 m-0">
+
+            <!-- Editable Rich Body -->
+            <div id="article-body" contenteditable="true" aria-label="Isi Artikel" class="editor-canvas flex flex-col gap-md font-body text-body-lg text-ink leading-relaxed min-h-[340px]">
+              <p class="m-0 text-pretty">
+                Di beberapa dusun pesisir Kabupaten Demak, air pasang kini datang lebih awal dan bertahan lebih lama. Perubahan pola gelombang serta penurunan muka tanah membuat <span class="scientific-term font-medium" title="Pengikisan garis pantai akibat gelombang laut dan hilangnya vegetasi penyangga">abrasi pesisir</span> bukan lagi sekadar istilah ilmiah, melainkan kenyataan harian bagi ratusan keluarga nelayan.
+              </p>
+
+              <!-- Embedded Data Callout Box Preview -->
+              <aside class="rounded-md bg-canvas apple-hairline p-lg flex flex-col sm:flex-row sm:items-center justify-between gap-md my-xs" contenteditable="false">
+                <div class="flex flex-col gap-xs">
+                  <span class="font-label text-label-xs text-muted uppercase tracking-wider">SOROTAN DATA TERVERIFIKASI</span>
+                  <p class="font-body text-body-sm text-ink m-0 text-pretty">
+                    Penurunan tutupan mangrove di sepanjang koridor pesisir utara Jawa Tengah periode 2020–2025 (Sumber: KLHK &amp; BRIN).
+                  </p>
+                </div>
+                <span class="font-headline text-headline-md text-alert-ink font-bold tabular-nums shrink-0">-420 ha</span>
+              </aside>
+
+              <p class="m-0 text-pretty">
+                Melalui pemetaan partisipatif bersama komunitas lokal, tim lapangan ICLIMATE mencatat bahwa penanaman kembali vegetasi penyangga di zona pasang surut mampu meredam energi gelombang hingga separuhnya dalam tiga tahun pertama pertumbuhan.
+              </p>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===============================================================
+             RIGHT COLUMN: Settings & Editorial Tools Sidebar
+             =============================================================== -->
+        <aside aria-label="Pengaturan Artikel dan Alat Editorial" class="flex flex-col gap-md">
+
+          <!-- 1. Pillar Category & Sorot di Home -->
+          <section class="apple-hairline bg-primary rounded-md p-lg flex flex-col gap-md">
+            <h2 class="font-headline text-title-md text-ink m-0">Kategori &amp; Publikasi</h2>
+
+            <div class="flex flex-col gap-xs">
+              <span class="font-label text-label-xs text-muted uppercase tracking-wider">Pilar Cerita</span>
+              <div class="flex flex-wrap gap-xs" role="radiogroup" aria-label="Pilih pilar cerita">
+                <button type="button" data-pillar-btn class="pillar-btn apple-hairline rounded-full px-md py-xs bg-canvas text-ink font-label text-label-sm font-medium transition-colors">
+                  For the Forest
+                </button>
+                <button type="button" data-pillar-btn class="pillar-btn apple-hairline rounded-full px-md py-xs bg-canvas text-ink font-label text-label-sm font-medium transition-colors">
+                  For the Animal
+                </button>
+                <button type="button" data-pillar-btn class="pillar-btn rounded-full px-md py-xs bg-ink text-on-ink font-label text-label-sm font-semibold transition-colors">
+                  For the People
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-sm border-t border-ink/5 flex items-center justify-between gap-md">
+              <div class="flex flex-col gap-xs">
+                <span class="font-body text-body-sm text-ink font-semibold">Sorot di Home</span>
+                <span class="font-label text-label-xs text-muted">Tampilkan di modul berita utama beranda</span>
+              </div>
+              <button type="button" role="switch" aria-checked="true" aria-label="Sorot artikel ini di Home" class="apple-toggle shrink-0">
+                <span class="block apple-toggle-knob"></span>
+              </button>
+            </div>
+          </section>
+
+          <!-- 2. Cover Image Upload -->
+          <section class="apple-hairline bg-primary rounded-md p-lg flex flex-col gap-md">
+            <div class="flex items-center justify-between gap-sm">
+              <h2 class="font-headline text-title-md text-ink m-0">Gambar Sampul</h2>
+              <button type="button" class="font-label text-label-sm text-ink font-medium hover:text-muted transition-colors">
+                Ganti Foto
+              </button>
+            </div>
+
+            <div class="relative rounded overflow-hidden apple-hairline">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCqSvKsNXHMrV_FfKH6eqEdo_0oySqRlGDRawho1llc4G360KOB_olIoe_K6nafHaYor6H4XJeMGIjyJ9m99OoxvvmeAKYtFVb7LyFol0GURHmbHe7tBqxYOojuhJ64Lr4kCm_3lry6yqOTwaCCWubdBIgZ2YGYsry5jGCm0s42xOVN7P7ePEyaGCh-NM1K4XYPAVUNiw9dKMHPmmzV-hMne1_w08fhuQzKK0-F-00KTydW21j52Vjh7EowcTs" alt="Pratinjau gambar sampul restorasi mangrove pesisir" class="w-full h-36 object-cover">
+            </div>
+
+            <div class="flex flex-col gap-xs">
+              <label for="cover-alt" class="font-label text-label-xs text-muted uppercase tracking-wider">Keterangan / Alt Text</label>
+              <input id="cover-alt" type="text" value="Relawan pesisir menanam bibit mangrove saat surut di Demak." class="apple-input w-full h-10 rounded bg-canvas/50 px-md font-body text-body-sm text-ink">
+            </div>
+          </section>
+
+          <!-- 3. Scientific Tooltip Inserter -->
+          <section class="apple-hairline bg-primary rounded-md p-lg flex flex-col gap-md">
+            <div class="flex items-center justify-between gap-sm">
+              <h2 class="font-headline text-title-md text-ink m-0">Tooltip Ilmiah</h2>
+              <span class="material-symbols-outlined text-title-md text-muted" aria-hidden="true">science</span>
+            </div>
+
+            <div class="flex flex-col gap-sm">
+              <input id="tooltip-term" type="text" placeholder="Istilah (mis. Ekosistem Gambut)" aria-label="Istilah ilmiah" class="apple-input w-full h-10 rounded bg-canvas/50 px-md font-body text-body-sm text-ink placeholder:text-muted">
+              <textarea id="tooltip-desc" rows="2" placeholder="Penjelasan singkat untuk pembaca awam..." aria-label="Penjelasan istilah ilmiah" class="apple-input w-full rounded bg-canvas/50 p-md font-body text-body-sm text-ink placeholder:text-muted resize-none"></textarea>
+              <button type="button" id="insert-tooltip-btn" class="apple-hairline w-full h-10 inline-flex items-center justify-center rounded-full bg-canvas text-ink font-label text-label-sm font-semibold hover:bg-ink hover:text-on-ink transition-colors">
+                + Sisipkan Tooltip ke Artikel
+              </button>
+            </div>
+          </section>
+
+          <!-- 4. Data Callout Box Builder -->
+          <section class="apple-hairline bg-primary rounded-md p-lg flex flex-col gap-md">
+            <div class="flex items-center justify-between gap-sm">
+              <h2 class="font-headline text-title-md text-ink m-0">Kotak Sorotan Data</h2>
+              <span class="material-symbols-outlined text-title-md text-muted" aria-hidden="true">analytics</span>
+            </div>
+
+            <div class="flex flex-col gap-sm">
+              <input id="callout-metric" type="text" placeholder="Angka / Metrik (mis. 1,8 Jt Hektar)" aria-label="Angka atau metrik sorotan data" class="apple-input w-full h-10 rounded bg-canvas/50 px-md font-body text-body-sm text-ink placeholder:text-muted">
+              <input id="callout-caption" type="text" placeholder="Keterangan &amp; sumber resmi..." aria-label="Keterangan dan sumber data" class="apple-input w-full h-10 rounded bg-canvas/50 px-md font-body text-body-sm text-ink placeholder:text-muted">
+              <button type="button" id="insert-callout-btn" class="apple-hairline w-full h-10 inline-flex items-center justify-center rounded-full bg-canvas text-ink font-label text-label-sm font-semibold hover:bg-ink hover:text-on-ink transition-colors">
+                + Tambah Callout Box
+              </button>
+            </div>
+          </section>
+
+        </aside>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.apple-toggle').forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+          const isChecked = toggle.getAttribute('aria-checked') === 'true';
+          toggle.setAttribute('aria-checked', String(!isChecked));
+        });
+      });
+
+      const pillarBtns = document.querySelectorAll('.pillar-btn');
+      pillarBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          pillarBtns.forEach(function (b) {
+            const active = b === btn;
+            b.classList.toggle('bg-ink', active);
+            b.classList.toggle('text-on-ink', active);
+            b.classList.toggle('font-semibold', active);
+            b.classList.toggle('bg-canvas', !active);
+            b.classList.toggle('text-ink', !active);
+            b.classList.toggle('font-medium', !active);
+            b.classList.toggle('apple-hairline', !active);
+          });
+        });
+      });
+
+      const bodyEl = document.getElementById('article-body');
+      const insertTooltipBtn = document.getElementById('insert-tooltip-btn');
+      if (insertTooltipBtn && bodyEl) {
+        insertTooltipBtn.addEventListener('click', function () {
+          const term = document.getElementById('tooltip-term').value.trim() || 'Ekosistem Gambut';
+          const desc = document.getElementById('tooltip-desc').value.trim() || 'Lahan basah penyimpan karbon alami.';
+          const p = document.createElement('p');
+          p.className = 'm-0 text-pretty';
+          const span = document.createElement('span');
+          span.className = 'scientific-term font-medium';
+          span.title = desc;
+          span.textContent = term;
+          p.appendChild(document.createTextNode('Istilah terkait: '));
+          p.appendChild(span);
+          p.appendChild(document.createTextNode('.'));
+          bodyEl.appendChild(p);
+        });
+      }
+
+      const insertCalloutBtn = document.getElementById('insert-callout-btn');
+      if (insertCalloutBtn && bodyEl) {
+        insertCalloutBtn.addEventListener('click', function () {
+          const metric = document.getElementById('callout-metric').value.trim() || '1,8 Jt Ha';
+          const caption = document.getElementById('callout-caption').value.trim() || 'Data pemantauan tutupan vegetasi pesisir.';
+          const box = document.createElement('aside');
+          box.className = 'rounded-md bg-canvas apple-hairline p-lg flex flex-col sm:flex-row sm:items-center justify-between gap-md my-xs';
+          box.setAttribute('contenteditable', 'false');
+          box.innerHTML =
+            '<div class="flex flex-col gap-xs">' +
+              '<span class="font-label text-label-xs text-muted uppercase tracking-wider">SOROTAN DATA TERVERIFIKASI</span>' +
+              '<p class="font-body text-body-sm text-ink m-0 text-pretty"></p>' +
+            '</div>' +
+            '<span class="font-headline text-headline-md text-alert-ink font-bold tabular-nums shrink-0"></span>';
+          box.querySelector('p').textContent = caption;
+          box.querySelector('span:last-child').textContent = metric;
+          bodyEl.appendChild(box);
+        });
+      }
+
+      const statusEl = document.getElementById('autosave-status');
+      const saveBtn = document.getElementById('save-draft-btn');
+      const pubBtn = document.getElementById('publish-story-btn');
+      if (saveBtn && statusEl) {
+        saveBtn.addEventListener('click', function () {
+          statusEl.textContent = 'Draft • Disimpan barusan';
+        });
+      }
+      if (pubBtn && statusEl) {
+        pubBtn.addEventListener('click', function () {
+          statusEl.textContent = 'Tayang • Dipublikasikan';
+          pubBtn.textContent = 'Cerita Tayang ✓';
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

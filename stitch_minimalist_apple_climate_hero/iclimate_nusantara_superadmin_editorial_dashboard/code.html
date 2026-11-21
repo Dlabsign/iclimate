@@ -1,0 +1,475 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Superadmin &amp; Editorial Dashboard</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-hairline {
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .apple-divider-y > * + * {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .sidebar-nav-active {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+    .kpi-metric {
+      font-size: 36px;
+      line-height: 40px;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+    }
+    .trend-pill-positive {
+      background-color: #E8F5E9;
+      color: #1B5E20;
+    }
+    .trend-pill-urgent {
+      background-color: rgba(232, 93, 42, 0.12);
+      color: #A8350E;
+    }
+    .report-title {
+      font-size: 15px;
+      line-height: 21px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .apple-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 9999px;
+      background-color: #34C759;
+      padding: 2px;
+      transition: background-color 180ms cubic-bezier(0.2, 0, 0, 1);
+    }
+    .apple-toggle[aria-checked="false"] {
+      background-color: #D1D1D6;
+    }
+    .apple-toggle-knob {
+      width: 20px;
+      height: 20px;
+      border-radius: 9999px;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
+      transform: translateX(18px);
+    }
+    .apple-toggle[aria-checked="false"] .apple-toggle-knob {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <div class="min-h-[1024px] w-full bg-canvas p-md flex flex-col lg:flex-row gap-lg" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- ===================================================================
+         LEFT FLOATING SIDEBAR: 240px Deep Obsidian (#0D100E), 24px Radius
+         =================================================================== -->
+    <aside aria-label="Navigasi Admin ICLIMATE" class="w-full lg:w-[240px] shrink-0 bg-obsidian rounded-xl p-lg flex flex-col justify-between gap-xl lg:min-h-[calc(1024px-32px)]" data-stitch-vh="lg:min-h-[calc(1024px-32px)]===lg:min-h-[calc(100vh-32px)]">
+
+      <div class="flex flex-col gap-xl">
+        <!-- Top Brand Header -->
+        <div class="flex items-center justify-between gap-sm">
+          <span class="font-title text-title-sm text-on-obsidian font-bold tracking-tight">ICLIMATE</span>
+          <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs uppercase tracking-wider">ADMIN</span>
+        </div>
+
+        <!-- Clean Navigation Menu -->
+        <nav class="flex flex-col gap-xs" aria-label="Menu Ruang Kendali">
+          <a href="#overview" class="sidebar-nav-active flex items-center justify-between rounded px-md py-sm text-on-obsidian font-label text-label-lg transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">dashboard</span>
+              <span>Overview</span>
+            </span>
+          </a>
+
+          <a href="../stories-viral/StoriesViral.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">article</span>
+              <span>Stories &amp; Viral</span>
+            </span>
+            <span class="bg-primary/10 text-muted-dark rounded-full px-sm py-xs font-label text-label-xs tabular-nums">24</span>
+          </a>
+
+          <a href="../movements-action/MovementsAction.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">campaign</span>
+              <span>Movements &amp; Petisi</span>
+            </span>
+          </a>
+
+          <a href="#laporan-publik" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">inbox</span>
+              <span>Laporan Publik</span>
+            </span>
+            <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs tabular-nums">5</span>
+          </a>
+
+          <a href="../about-sources/AboutSources.html" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">database</span>
+              <span>Sumber Data &amp; Edukasi</span>
+            </span>
+          </a>
+
+          <a href="#pengaturan-home" class="flex items-center justify-between rounded px-md py-sm text-muted-dark hover:text-on-obsidian font-label text-label-lg font-medium transition-colors">
+            <span class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-title-md" aria-hidden="true">tune</span>
+              <span>Pengaturan Home &amp; Tim</span>
+            </span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Admin Profile Strip -->
+      <div class="pt-md border-t border-outline/40 flex items-center justify-between gap-sm">
+        <div class="flex items-center gap-sm min-w-0">
+          <div class="w-9 h-9 rounded-full bg-surface-container text-on-surface-container flex items-center justify-center font-label text-label-sm font-semibold shrink-0">
+            AR
+          </div>
+          <div class="min-w-0">
+            <p class="font-body text-body-sm text-on-obsidian font-medium m-0 truncate">Arif</p>
+            <p class="font-label text-label-xs text-muted-dark m-0 truncate">Superadmin</p>
+          </div>
+        </div>
+        <a href="../admin-login/AdminLogin.html" title="Keluar" aria-label="Keluar dari Ruang Kendali" class="w-8 h-8 rounded-full inline-flex items-center justify-center text-muted-dark hover:text-on-obsidian hover:bg-primary/10 transition-colors shrink-0">
+          <span class="material-symbols-outlined text-title-md" aria-hidden="true">logout</span>
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- ===================================================================
+         MAIN WORKSPACE CANVAS: Apple Off-White (#F5F5F7)
+         =================================================================== -->
+    <main class="flex-1 min-w-0 py-sm pr-sm flex flex-col gap-lg">
+
+      <!-- Top Workspace Header -->
+      <header class="flex flex-col md:flex-row md:items-center md:justify-between gap-md">
+        <div class="flex flex-col gap-xs">
+          <h1 class="font-headline text-headline-xl-mobile text-ink m-0 text-balance">
+            Ringkasan Kendali.
+          </h1>
+          <p class="font-body text-body-sm text-muted m-0">
+            Pantau performa cerita viral, petisi aktif, dan laporan masyarakat yang masuk hari ini.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-sm shrink-0">
+          <button type="button" class="apple-hairline h-11 inline-flex items-center justify-center bg-primary text-ink rounded-full px-lg font-label text-label-lg hover:bg-canvas transition-colors">
+            + Buat Petisi Baru
+          </button>
+          <button type="button" class="h-11 inline-flex items-center justify-center bg-ink text-on-ink rounded-full px-lg font-label text-label-lg hover:bg-obsidian transition-colors">
+            + Tulis Berita Viral
+          </button>
+        </div>
+      </header>
+
+      <!-- Row 1: 4-Column KPI Summary Grid (20px squircle cards, 20px gap, 24px padding) -->
+      <section aria-label="Metrik Utama Hari Ini" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-[20px]">
+
+        <!-- Card 1 -->
+        <article class="apple-hairline bg-primary rounded-md p-lg flex flex-col justify-between gap-md">
+          <span class="font-label text-label-xs text-muted uppercase tracking-wider">ARTIKEL TAYANG</span>
+          <div class="flex flex-wrap items-end justify-between gap-sm">
+            <span class="kpi-metric font-headline text-ink tabular-nums">24</span>
+            <span class="trend-pill-positive rounded-full px-sm py-xs font-label text-label-xs whitespace-nowrap">+3 minggu ini</span>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="apple-hairline bg-primary rounded-md p-lg flex flex-col justify-between gap-md">
+          <span class="font-label text-label-xs text-muted uppercase tracking-wider">TOTAL TANDA TANGAN PETISI</span>
+          <div class="flex flex-wrap items-end justify-between gap-sm">
+            <span class="kpi-metric font-headline text-ink tabular-nums">120.650</span>
+            <span class="trend-pill-positive rounded-full px-sm py-xs font-label text-label-xs whitespace-nowrap">+4.120 hari ini</span>
+          </div>
+        </article>
+
+        <!-- Card 3 (Urgent Highlight) -->
+        <article class="apple-hairline bg-primary rounded-md p-lg flex flex-col justify-between gap-md">
+          <span class="font-label text-label-xs text-muted uppercase tracking-wider">LAPORAN MENUNGGU VERIFIKASI</span>
+          <div class="flex flex-wrap items-end justify-between gap-sm">
+            <span class="kpi-metric font-headline text-alert tabular-nums">5</span>
+            <span class="trend-pill-urgent rounded-full px-sm py-xs font-label text-label-xs whitespace-nowrap">Perlu ditinjau</span>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="apple-hairline bg-primary rounded-md p-lg flex flex-col justify-between gap-md">
+          <span class="font-label text-label-xs text-muted uppercase tracking-wider">UNDUHAN FACT SHEET EDUKASI</span>
+          <div class="flex flex-wrap items-end justify-between gap-sm">
+            <span class="kpi-metric font-headline text-ink tabular-nums">1.840</span>
+            <span class="font-label text-label-sm text-muted whitespace-nowrap">3 file PDF aktif</span>
+          </div>
+        </article>
+
+      </section>
+
+      <!-- Row 2: Asymmetric 2-Column Workspace Grid (65% Left / 35% Right, 24px gap) -->
+      <section aria-label="Antrean Verifikasi dan Sorotan Beranda" class="grid grid-cols-1 xl:grid-cols-[1.85fr_1fr] gap-lg items-start">
+
+        <!-- Left Panel: Pending Public Reports Queue -->
+        <div id="laporan-publik" class="apple-hairline bg-primary rounded-md p-[28px] flex flex-col gap-lg">
+          <div class="flex flex-wrap items-center justify-between gap-sm">
+            <h2 class="font-headline text-title-sm font-bold text-ink m-0">
+              Laporan Publik Terbaru (Raise Your Voice)
+            </h2>
+            <a href="../movements-action/MovementsAction.html" class="font-label text-label-sm text-muted hover:text-ink transition-colors">
+              Lihat semua laporan →
+            </a>
+          </div>
+
+          <div class="apple-divider-y flex flex-col">
+            <!-- Row 1 -->
+            <article class="py-md first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-md">
+              <div class="flex flex-col gap-xs min-w-0">
+                <div>
+                  <span class="inline-flex items-center rounded-full bg-surface-container text-on-surface-container px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                    FOR THE FOREST
+                  </span>
+                </div>
+                <h3 class="report-title font-body text-ink m-0 text-pretty">
+                  Pembukaan lahan gambut di pinggir kawasan konservasi
+                </h3>
+                <p class="font-label text-label-sm text-muted m-0">
+                  Kab. Kotawaringin Timur • 18 menit lalu
+                </p>
+              </div>
+              <button type="button" data-verify-btn class="h-9 shrink-0 inline-flex items-center justify-center bg-ink text-on-ink rounded-full px-md font-label text-label-sm font-semibold hover:bg-obsidian transition-colors">
+                Verifikasi
+              </button>
+            </article>
+
+            <!-- Row 2 -->
+            <article class="py-md first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-md">
+              <div class="flex flex-col gap-xs min-w-0">
+                <div>
+                  <span class="inline-flex items-center rounded-full bg-canvas text-ink px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                    FOR THE PEOPLE
+                  </span>
+                </div>
+                <h3 class="report-title font-body text-ink m-0 text-pretty">
+                  Abrasi pesisir merendam akses jalan utama desa nelayan
+                </h3>
+                <p class="font-label text-label-sm text-muted m-0">
+                  Demak, Jawa Tengah • 2 jam lalu
+                </p>
+              </div>
+              <button type="button" data-verify-btn class="h-9 shrink-0 inline-flex items-center justify-center bg-ink text-on-ink rounded-full px-md font-label text-label-sm font-semibold hover:bg-obsidian transition-colors">
+                Verifikasi
+              </button>
+            </article>
+
+            <!-- Row 3 -->
+            <article class="py-md first:pt-0 last:pb-0 flex flex-col sm:flex-row sm:items-center justify-between gap-md">
+              <div class="flex flex-col gap-xs min-w-0">
+                <div>
+                  <span class="inline-flex items-center rounded-full bg-accent/15 text-ink px-sm py-xs font-label text-label-xs uppercase tracking-wider">
+                    FOR THE ANIMAL
+                  </span>
+                </div>
+                <h3 class="report-title font-body text-ink m-0 text-pretty">
+                  Penampakan satwa liar keluar hutan akibat kekeringan
+                </h3>
+                <p class="font-label text-label-sm text-muted m-0">
+                  Banten • 5 jam lalu
+                </p>
+              </div>
+              <button type="button" data-verify-btn class="h-9 shrink-0 inline-flex items-center justify-center bg-ink text-on-ink rounded-full px-md font-label text-label-sm font-semibold hover:bg-obsidian transition-colors">
+                Verifikasi
+              </button>
+            </article>
+          </div>
+        </div>
+
+        <!-- Right Panel: Homepage Live Spotlight Control -->
+        <div id="pengaturan-home" class="apple-hairline bg-primary rounded-md p-[28px] flex flex-col gap-lg">
+          <div class="flex flex-col gap-xs">
+            <h2 class="font-headline text-title-sm font-bold text-ink m-0">
+              Tayang di Beranda (Home)
+            </h2>
+            <p class="font-label text-label-sm text-muted m-0">
+              Konten yang sedang disorot di halaman utama.
+            </p>
+          </div>
+
+          <div class="apple-divider-y flex flex-col">
+            <!-- Spotlight 1 -->
+            <div class="py-md first:pt-0 last:pb-0 flex items-center justify-between gap-md">
+              <div class="flex flex-col gap-xs min-w-0">
+                <span class="font-label text-label-xs text-muted uppercase tracking-wider">Headline Viral Utama</span>
+                <p class="font-body text-body-sm text-ink font-semibold m-0 text-pretty">
+                  Mengapa Rencana Relokasi Badak Jawa di Ujung Kulon Memicu Perdebatan?
+                </p>
+                <span class="font-label text-label-sm text-muted tabular-nums">Status: Aktif • 1,2 Jt Tayangan</span>
+              </div>
+              <button type="button" role="switch" aria-checked="true" aria-label="Aktifkan sorotan Headline Viral Utama" class="apple-toggle shrink-0 mt-xs">
+                <span class="block apple-toggle-knob"></span>
+              </button>
+            </div>
+
+            <!-- Spotlight 2 -->
+            <div class="py-md first:pt-0 last:pb-0 flex items-center justify-between gap-md">
+              <div class="flex flex-col gap-xs min-w-0">
+                <span class="font-label text-label-xs text-muted uppercase tracking-wider">Petisi Utama Beranda</span>
+                <p class="font-body text-body-sm text-ink font-semibold m-0 text-pretty">
+                  Hentikan Ekspansi Industri di Koridor Ujung Kulon
+                </p>
+                <span class="font-label text-label-sm text-muted tabular-nums">Status: 96% Tercapai</span>
+              </div>
+              <button type="button" role="switch" aria-checked="true" aria-label="Aktifkan sorotan Petisi Utama Beranda" class="apple-toggle shrink-0 mt-xs">
+                <span class="block apple-toggle-knob"></span>
+              </button>
+            </div>
+
+            <!-- Spotlight 3 -->
+            <div class="py-md first:pt-0 last:pb-0 flex items-center justify-between gap-md">
+              <div class="flex flex-col gap-xs min-w-0">
+                <span class="font-label text-label-xs text-muted uppercase tracking-wider">Aksi Lapangan</span>
+                <p class="font-body text-body-sm text-ink font-semibold m-0 text-pretty">
+                  Tim Pantau Gambut &amp; Respons Cepat Kalimantan
+                </p>
+                <span class="font-label text-label-sm text-muted">Status: Aktif</span>
+              </div>
+              <button type="button" role="switch" aria-checked="true" aria-label="Aktifkan sorotan Aksi Lapangan" class="apple-toggle shrink-0 mt-xs">
+                <span class="block apple-toggle-knob"></span>
+              </button>
+            </div>
+          </div>
+
+          <a href="../nusantara-landing/NusantaraLanding.html" class="apple-hairline w-full h-11 inline-flex items-center justify-center rounded-full bg-canvas text-ink font-label text-label-lg hover:bg-ink hover:text-on-ink transition-colors">
+            Atur Sorotan Beranda
+          </a>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.apple-toggle').forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+          const isChecked = toggle.getAttribute('aria-checked') === 'true';
+          toggle.setAttribute('aria-checked', String(!isChecked));
+        });
+      });
+
+      document.querySelectorAll('[data-verify-btn]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btn.textContent = 'Terverifikasi';
+          btn.classList.remove('bg-ink', 'text-on-ink', 'hover:bg-obsidian');
+          btn.classList.add('trend-pill-positive');
+          btn.disabled = true;
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>

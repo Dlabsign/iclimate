@@ -1,0 +1,357 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Stories &amp; Viral</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background-color: rgba(20, 24, 21, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .sci-term {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: #6E6E73;
+      text-underline-offset: 4px;
+      cursor: help;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <!-- Sticky Minimalist Glassmorphic Navbar -->
+  <div class="sticky top-md z-30 w-full px-md pt-md pointer-events-none">
+    <nav aria-label="Primary Navigation" class="pointer-events-auto max-w-6xl mx-auto apple-glass-nav rounded-full px-lg py-sm grid grid-cols-3 items-center">
+      <ul class="flex items-center gap-lg list-none m-0 p-0">
+        <li><a href="#" aria-current="page" class="font-label text-label-sm text-primary transition-colors whitespace-nowrap">Stories</a></li>
+        <li><a href="../nusantara-landing/NusantaraLanding.html#movements" class="font-label text-label-sm text-on-surface/75 hover:text-primary transition-colors whitespace-nowrap">Movements</a></li>
+        <li class="hidden md:block"><a href="#reader-action" class="font-label text-label-sm text-on-surface/75 hover:text-primary transition-colors whitespace-nowrap">Raise Your Voice</a></li>
+        <li class="hidden md:block"><a href="../climate-map/ClimateMap.html" class="font-label text-label-sm text-on-surface/75 hover:text-primary transition-colors whitespace-nowrap">About</a></li>
+      </ul>
+
+      <a href="../nusantara-landing/NusantaraLanding.html" class="justify-self-center font-title text-title-md text-primary tracking-tight">ICLIMATE</a>
+
+      <div class="justify-self-end">
+        <a href="#reader-action" class="group inline-flex items-center gap-sm bg-ink text-on-ink rounded-full pl-md pr-xs py-xs border border-primary/15 transition-colors hover:bg-obsidian">
+          <span class="font-label text-label-sm whitespace-nowrap">Suarakan Sekarang</span>
+          <span class="inline-flex items-center justify-center w-lg h-lg rounded-full bg-primary text-on-primary transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+            <span class="material-symbols-outlined text-label-sm">arrow_forward</span>
+          </span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="w-full max-w-6xl mx-auto px-lg md:px-2xl">
+
+    <!-- VARIANT 2 HEADER: Centered Editorial Masthead & Centered Filter Pills -->
+    <header class="pt-3xl pb-2xl text-center flex flex-col items-center">
+      <h1 class="font-headline text-headline-xl-mobile md:text-headline-xl text-ink m-0 text-balance">
+        Cerita dari Garis Depan.
+      </h1>
+      <p class="font-body text-body-lg text-muted max-w-xl mt-md mb-xl text-pretty">
+        Mengupas konteks di balik isu lingkungan yang sedang viral—berbasis fakta lapangan dan riset ilmiah yang mudah dipahami.
+      </p>
+
+      <div role="tablist" aria-label="Filter Kategori Cerita" class="flex flex-wrap justify-center items-center gap-sm">
+        <button type="button" data-cat="all" class="story-filter rounded-full px-lg py-sm font-label text-label-sm bg-ink text-on-ink transition-colors">Semua</button>
+        <button type="button" data-cat="viral" class="story-filter inline-flex items-center gap-sm rounded-full px-lg py-sm font-label text-label-sm bg-primary text-ink border border-ink/10 hover:border-ink/25 transition-colors">
+          <span class="w-2 h-2 rounded-full bg-alert"></span>
+          <span>Viral di Medsos</span>
+        </button>
+        <button type="button" data-cat="forest" class="story-filter rounded-full px-lg py-sm font-label text-label-sm bg-primary text-ink border border-ink/10 hover:border-ink/25 transition-colors">For the Forest</button>
+        <button type="button" data-cat="animal" class="story-filter rounded-full px-lg py-sm font-label text-label-sm bg-primary text-ink border border-ink/10 hover:border-ink/25 transition-colors">For the Animal</button>
+        <button type="button" data-cat="people" class="story-filter rounded-full px-lg py-sm font-label text-label-sm bg-primary text-ink border border-ink/10 hover:border-ink/25 transition-colors">For the People</button>
+      </div>
+    </header>
+
+    <!-- VARIANT 2 BODY: 12-Column Magazine Digest (8-Col Main Story + Reader, 4-Col Vertical Digest Rail) -->
+    <div class="pb-3xl grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+
+      <!-- Left 8-Col Primary Column: Stacked Featured Story + Scrollytelling Reader -->
+      <div class="lg:col-span-8 flex flex-col gap-2xl">
+        <article class="bg-primary rounded-xl overflow-hidden border border-ink/10 flex flex-col">
+          <div class="relative h-[340px] bg-surface overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrANBwEA86UAz68HvHVyNn7w8RlZb0r5V44XzDuLBWLEEePnwDF2Wuf7u45pLxuwr4IwZ0hviyHfyRv3U9bJPUHyC8OWEKji4chTVj8RVrjfAgh1WVvQJa5maAUDgXvZ5rxd-EpTIt6sUQnbPTSm6pLk7hZwm73so_Ha6X8cdbzpVOZJngyfxgNe82kQMZyGfzL5u8-TnZ_jj9ITDNRcDKV4y_8_vCJgfL4rQT_ClpjMBdo--kcn4w5m4LP1SbF6oz4" alt="Hutan hujan tropis Taman Nasional Ujung Kulon saat senja dengan cahaya keemasan menembus pakis lebat" class="absolute inset-0 w-full h-full object-cover">
+          </div>
+          <div class="p-xl flex flex-col gap-md">
+            <span class="self-start inline-flex items-center gap-xs rounded-full bg-canvas px-md py-xs border border-ink/10 font-label text-label-xs text-ink uppercase">
+              <span class="w-1.5 h-1.5 rounded-full bg-alert"></span>
+              <span>For the Animal • Viral • Waktu Baca 5 Menit</span>
+            </span>
+
+            <h2 class="font-headline text-headline-bold text-ink text-balance m-0">
+              Di Balik Rencana Pemindahan Badak Jawa: Pacuan Melawan Waktu dan Perubahan Iklim.
+            </h2>
+
+            <p class="font-body text-body-md text-ink/80 text-pretty m-0">
+              Dengan populasi kurang dari 80 individu di satu-satunya habitat alami mereka di Taman Nasional Ujung Kulon, satu bencana alam atau wabah penyakit saja bisa menghapus spesies ini selamanya.
+            </p>
+
+            <div class="pt-xs">
+              <a href="#reader-preview" class="inline-flex items-center gap-sm bg-ink text-on-ink rounded-full px-lg py-sm font-label text-label-lg hover:bg-obsidian transition-colors">
+                <span>Baca Konteks Lengkap</span>
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Embedded Reader Preview -->
+        <section id="reader-preview" aria-label="Pratinjau Pembaca Artikel" class="flex flex-col gap-xl">
+          <div class="bg-obsidian text-on-obsidian rounded-md p-xl flex flex-col sm:flex-row sm:items-center gap-lg">
+            <div class="font-headline text-headline-xl text-alert tabular-nums shrink-0">100%</div>
+            <p class="font-body text-body-lg text-primary text-pretty m-0">
+              Populasi Badak Jawa liar di dunia saat ini hanya bergantung pada satu semenanjung seluas 122.956 hektare.
+            </p>
+          </div>
+
+          <article class="bg-primary rounded-md p-xl border border-ink/10 flex flex-col gap-md">
+            <h2 class="font-title text-title-lg text-ink m-0">
+              Ancaman Ganda: Air Laut &amp; Tanaman Langkap
+            </h2>
+            <p class="font-body text-body-lg text-ink/85 text-pretty m-0">
+              Di balik rimbunnya kanopi Ujung Kulon, ruang jelajah <span class="sci-term" title="Nama ilmiah Badak Jawa, salah satu mamalia besar paling terancam punah di dunia">Rhinoceros sondaicus</span> menyempit dari dua arah sekaligus. Kenaikan muka air laut dan potensi tsunami Selat Sunda mengancam dataran rendah pesisir, sementara dominasi <span class="sci-term" title="Palem langkap invasif yang menutupi lantai hutan dan menghambat pertumbuhan pakan alami badak">Arenga obtusifolia</span> menekan ketersediaan tumbuhan pakan di jantung hutan.
+            </p>
+            <p class="font-body text-body-lg text-ink/85 text-pretty m-0">
+              Membentuk populasi kedua di kawasan penyangga yang aman bukan sekadar pilihan konservasi—melainkan langkah darurat agar Indonesia tidak kehilangan salah satu satwa purba terakhirnya akibat satu kejadian ekstrem tunggal.
+            </p>
+          </article>
+
+          <div id="reader-action" class="rounded-md p-xl bg-ink/5 border border-ink/10 flex flex-col sm:flex-row sm:items-center justify-between gap-lg">
+            <h3 class="font-title text-title-sm text-ink m-0">
+              Sudah tahu konteksnya? Saatnya ikut bersuara.
+            </h3>
+            <div class="flex flex-wrap items-center gap-sm">
+              <a href="../nusantara-landing/NusantaraLanding.html#movements" class="inline-flex items-center gap-sm bg-ink text-on-ink rounded-full px-lg py-sm font-label text-label-lg hover:bg-obsidian transition-colors whitespace-nowrap">
+                <span>Tanda Tangani Petisi Ujung Kulon</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+              <button type="button" id="share-article-btn" class="inline-flex items-center gap-sm bg-primary text-on-primary rounded-full px-lg py-sm font-label text-label-lg border border-ink/10 hover:bg-canvas transition-colors whitespace-nowrap">
+                <span>Bagikan Artikel</span>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right 4-Col Vertical Digest Rail -->
+      <aside aria-label="Berita Viral dan Laporan Lapangan" class="lg:col-span-4 flex flex-col gap-lg">
+        <article class="story-card bg-primary rounded-md overflow-hidden border border-ink/10 flex flex-col" data-category="viral">
+          <div class="aspect-video w-full overflow-hidden bg-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAOH15syrT2pL6yhL27R6lU3FWXmOF-3LK1NYn45ozK_am-l8VxQsAudp8FbQEwdc3wKoTnLlrvsCFPkzT38xP2qfRf8Rpg8KE6Ccpm-6aomlYX_zWSDgPspaiYQHCf2PReVVDq6Th_bU0vBgTKvmzbS6CeuDuYRm1xUgTOZNj1KtZj0jHde4WUjMilfdtevI5sKvnWOEJr_2u8M2x7qBiVeIaWtuOuO5o6NUvgSh3B5GYpRe_c3c-5QtfiwWjtB7hk" alt="Citra pesisir utara Demak yang mengalami abrasi air laut" class="w-full h-full object-cover">
+          </div>
+          <div class="p-lg flex flex-col gap-sm">
+            <div class="flex items-center justify-between gap-sm">
+              <span class="inline-flex items-center gap-xs rounded-full bg-canvas px-md py-xs font-label text-label-xs text-alert-ink uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-alert"></span>
+                <span>Viral di Medsos</span>
+              </span>
+              <span class="font-label text-label-sm text-muted">4 jam lalu</span>
+            </div>
+            <h3 class="font-title text-title-sm text-ink text-balance m-0">
+              Citra Satelit Ungkap Penyusutan Garis Pantai Demak dalam 5 Tahun Terakhir
+            </h3>
+            <p class="font-body text-body-sm text-muted text-pretty m-0">
+              Analisis visual perubahan pesisir utara Jawa akibat abrasi dan kenaikan muka air laut.
+            </p>
+          </div>
+        </article>
+
+        <article class="story-card bg-primary rounded-md overflow-hidden border border-ink/10 flex flex-col" data-category="forest">
+          <div class="aspect-video w-full overflow-hidden bg-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBZoJKHmqZVndNpC35CgE4fg8p3IDw5DLL-M2SWQaQEOPRaqAePGNCh25Soy63mY_oUHm66DWyn6Hwq0hDO2gw6xU83Kri8zYUNTNdQ-zPJ1MZMwBpBAAcX-LngDIZRk3-W0WGxpcNq-NPyoAgszR6Uv_J14Y3wN2xzrVGstCuStB6Wrcx7SFcRJPcRQmJoVbe_3eLHhqV8sbFrgYoXBVsH5YqZF-emfDl3e_ZjMc3Y2fxv1FEyBT00ypYdKKo" alt="Kanopi hutan gambut Kalimantan Tengah diselimuti kabut asap tipis" class="w-full h-full object-cover">
+          </div>
+          <div class="p-lg flex flex-col gap-sm">
+            <div class="flex items-center justify-between gap-sm">
+              <span class="inline-flex items-center rounded-full bg-canvas px-md py-xs font-label text-label-xs text-ink uppercase">For the Forest</span>
+              <span class="font-label text-label-sm text-muted">6 jam lalu</span>
+            </div>
+            <h3 class="font-title text-title-sm text-ink text-balance m-0">
+              Lonjakan Titik Panas Terdeteksi di Lahan Gambut Kalimantan Tengah Pekan Ini
+            </h3>
+            <p class="font-body text-body-sm text-muted text-pretty m-0">
+              Memantau kerentanan kawasan hidrologis gambut memasuki puncak musim kemarau.
+            </p>
+          </div>
+        </article>
+
+        <article class="story-card bg-primary rounded-md overflow-hidden border border-ink/10 flex flex-col" data-category="people">
+          <div class="aspect-video w-full overflow-hidden bg-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB-6RTXPwWIi-pi65uuIJ378G1QIZ2DIdO-KM1fgoM5Xo2tfs1-tib6X24dA8SbK0Zm7OtJYHlcnorDlvWbhq0u-Mmf8_IGKrZH95L-Ip8iO32kJ5NxT0Gk82vFgkn1OghFm_zCjlVKRxm4ue3z2VtceR2X_-6O-qGAwTZUy2s3wD9QGkAsQQ_vCwtadFaTqXs6vprGmVTaF5pPtKC6Z2Xw75-BtcFdlyif1HD6NWr7bPVYk0jl1wiNB9mghLM" alt="Ombak dan kabut pesisir utara Jawa saat senja" class="w-full h-full object-cover">
+          </div>
+          <div class="p-lg flex flex-col gap-sm">
+            <div class="flex items-center justify-between gap-sm">
+              <span class="inline-flex items-center rounded-full bg-canvas px-md py-xs font-label text-label-xs text-ink uppercase">For the People</span>
+              <span class="font-label text-label-sm text-muted">1 hari lalu</span>
+            </div>
+            <h3 class="font-title text-title-sm text-ink text-balance m-0">
+              Suara Petani Pesisir: Menghadapi Gagal Panen Akibat Anomali Cuaca Ekstrem
+            </h3>
+            <p class="font-body text-body-sm text-muted text-pretty m-0">
+              Kisah nyata dari lapangan tentang dampak pergeseran musim tanam terhadap ketahanan pangan lokal.
+            </p>
+          </div>
+        </article>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer class="w-full bg-canvas border-t border-ink/10 py-2xl px-lg md:px-2xl">
+    <div class="max-w-6xl mx-auto flex flex-col gap-lg">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-lg">
+        <div>
+          <span class="font-title text-title-md text-ink tracking-tight">ICLIMATE</span>
+          <p class="font-body text-body-sm text-muted mt-xs m-0">Amplifying Indonesia’s environmental truth.</p>
+        </div>
+
+        <nav aria-label="Footer Navigation" class="flex flex-wrap items-center gap-lg">
+          <a href="../nusantara-landing/NusantaraLanding.html" class="font-label text-label-sm text-muted hover:text-ink transition-colors">Home</a>
+          <a href="#" class="font-label text-label-sm text-ink transition-colors">Stories</a>
+          <a href="../nusantara-landing/NusantaraLanding.html#movements" class="font-label text-label-sm text-muted hover:text-ink transition-colors">Movements</a>
+          <a href="#reader-action" class="font-label text-label-sm text-muted hover:text-ink transition-colors">Raise Your Voice</a>
+          <a href="../climate-map/ClimateMap.html" class="font-label text-label-sm text-muted hover:text-ink transition-colors">About &amp; Data</a>
+        </nav>
+      </div>
+
+      <div class="pt-md border-t border-ink/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-sm">
+        <span class="font-label text-label-sm text-muted">© 2026 ICLIMATE Nusantara. Jurnalisme data &amp; suara lingkungan independen.</span>
+        <span class="font-label text-label-sm text-muted">Jakarta · Kalimantan · Ujung Kulon</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const filters = document.querySelectorAll('.story-filter');
+      const cards = document.querySelectorAll('.story-card');
+      filters.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          const cat = btn.getAttribute('data-cat');
+          filters.forEach(function (f) {
+            f.classList.remove('bg-ink', 'text-on-ink');
+            f.classList.add('bg-primary', 'text-ink', 'border', 'border-ink/10');
+          });
+          btn.classList.remove('bg-primary', 'text-ink', 'border', 'border-ink/10');
+          btn.classList.add('bg-ink', 'text-on-ink');
+          cards.forEach(function (card) {
+            card.style.opacity = (cat === 'all' || card.getAttribute('data-category') === cat) ? '1' : '0.35';
+          });
+        });
+      });
+      const shareBtn = document.getElementById('share-article-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', function () {
+          shareBtn.querySelector('span').textContent = 'Tautan Disalin ✓';
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

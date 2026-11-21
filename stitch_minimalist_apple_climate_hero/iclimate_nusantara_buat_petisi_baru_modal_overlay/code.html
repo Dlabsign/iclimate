@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Buat Petisi Baru (Modal Overlay)</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-hairline {
+      border: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .apple-divider-y > * + * {
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+    .sidebar-nav-active {
+      background-color: rgba(255, 255, 255, 0.12);
+    }
+    .progress-track {
+      background-color: #E8E8ED;
+      height: 6px;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .apple-input {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .apple-input:focus {
+      outline: none;
+      border-color: #1D1D1F;
+      box-shadow: 0 0 0 3px rgba(29, 29, 31, 0.08);
+    }
+    .apple-toggle {
+      width: 42px;
+      height: 24px;
+      border-radius: 9999px;
+      background-color: #34C759;
+      padding: 2px;
+    }
+    .apple-toggle-knob {
+      width: 20px;
+      height: 20px;
+      border-radius: 9999px;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transform: translateX(18px);
+    }
+    .modal-backdrop {
+      background-color: rgba(13, 16, 14, 0.42);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .modal-shadow {
+      box-shadow: 0 24px 64px rgba(13, 16, 14, 0.22);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <div class="relative min-h-[1024px] w-full bg-canvas" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- ===================================================================
+         BACKGROUND WORKSPACE: Movements & Petisi Manager
+         =================================================================== -->
+    <div class="min-h-[1024px] w-full bg-canvas p-md flex flex-col lg:flex-row gap-lg" aria-hidden="true" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+      <aside class="w-full lg:w-[240px] shrink-0 bg-obsidian rounded-xl p-lg flex flex-col justify-between gap-xl lg:min-h-[calc(1024px-32px)]" data-stitch-vh="lg:min-h-[calc(1024px-32px)]===lg:min-h-[calc(100vh-32px)]">
+        <div class="flex flex-col gap-xl">
+          <div class="flex items-center justify-between gap-sm">
+            <span class="font-title text-title-sm text-on-obsidian font-bold tracking-tight">ICLIMATE</span>
+            <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs uppercase tracking-wider">ADMIN</span>
+          </div>
+          <nav class="flex flex-col gap-xs">
+            <div class="flex items-center gap-sm rounded px-md py-sm text-muted-dark font-label text-label-lg font-medium">
+              <span class="material-symbols-outlined text-title-md">dashboard</span>
+              <span>Overview</span>
+            </div>
+            <div class="flex items-center justify-between rounded px-md py-sm text-muted-dark font-label text-label-lg font-medium">
+              <span class="flex items-center gap-sm">
+                <span class="material-symbols-outlined text-title-md">article</span>
+                <span>Stories &amp; Viral</span>
+              </span>
+              <span class="bg-primary/10 text-muted-dark rounded-full px-sm py-xs font-label text-label-xs">24</span>
+            </div>
+            <div class="sidebar-nav-active flex items-center gap-sm rounded px-md py-sm text-on-obsidian font-label text-label-lg">
+              <span class="material-symbols-outlined text-title-md">campaign</span>
+              <span>Movements &amp; Petisi</span>
+            </div>
+            <div class="flex items-center justify-between rounded px-md py-sm text-muted-dark font-label text-label-lg font-medium">
+              <span class="flex items-center gap-sm">
+                <span class="material-symbols-outlined text-title-md">inbox</span>
+                <span>Laporan Publik</span>
+              </span>
+              <span class="bg-alert-ink text-on-ink rounded-full px-sm py-xs font-label text-label-xs">5</span>
+            </div>
+            <div class="flex items-center gap-sm rounded px-md py-sm text-muted-dark font-label text-label-lg font-medium">
+              <span class="material-symbols-outlined text-title-md">database</span>
+              <span>Sumber Data &amp; Edukasi</span>
+            </div>
+            <div class="flex items-center gap-sm rounded px-md py-sm text-muted-dark font-label text-label-lg font-medium">
+              <span class="material-symbols-outlined text-title-md">tune</span>
+              <span>Pengaturan Home &amp; Tim</span>
+            </div>
+          </nav>
+        </div>
+        <div class="pt-md border-t border-outline/40 flex items-center gap-sm">
+          <div class="w-9 h-9 rounded-full bg-surface-container text-on-surface-container flex items-center justify-center font-label text-label-sm font-semibold">AR</div>
+          <div>
+            <p class="font-body text-body-sm text-on-obsidian font-medium m-0">Arif</p>
+            <p class="font-label text-label-xs text-muted-dark m-0">Superadmin</p>
+          </div>
+        </div>
+      </aside>
+
+      <div class="flex-1 min-w-0 py-sm pr-sm flex flex-col gap-lg">
+        <div class="flex items-center justify-between gap-md">
+          <div>
+            <h2 class="font-headline text-headline-xl-mobile text-ink m-0">Movements &amp; Petisi.</h2>
+            <p class="font-body text-body-sm text-muted m-0">Atur petisi aktif, pantau target tanda tangan, dan kelola direktori komunitas relawan lokal.</p>
+          </div>
+          <div class="flex items-center gap-sm">
+            <span class="apple-hairline h-11 inline-flex items-center bg-primary text-ink rounded-full px-lg font-label text-label-lg">+ Tambah Komunitas</span>
+            <span class="h-11 inline-flex items-center bg-ink text-on-ink rounded-full px-lg font-label text-label-lg">+ Buat Petisi Baru</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+          <div class="apple-hairline bg-primary rounded-md p-[28px] flex flex-col gap-md">
+            <div class="flex items-center justify-between">
+              <span class="rounded-full bg-surface-container text-on-surface-container px-sm py-xs font-label text-label-xs">FOR THE FOREST</span>
+              <div class="apple-toggle"><span class="block apple-toggle-knob"></span></div>
+            </div>
+            <p class="font-headline text-title-sm font-bold text-ink m-0">Audit &amp; Moratorium Izin Pembukaan Lahan Gambut Baru</p>
+            <div class="progress-track w-full"><div class="bg-alert h-full rounded-full" style="width: 72%;"></div></div>
+          </div>
+          <div class="apple-hairline bg-primary rounded-md p-[28px] flex flex-col gap-md">
+            <div class="flex items-center justify-between">
+              <span class="rounded-full bg-accent/15 text-ink px-sm py-xs font-label text-label-xs">FOR THE ANIMAL</span>
+              <div class="apple-toggle"><span class="block apple-toggle-knob"></span></div>
+            </div>
+            <p class="font-headline text-title-sm font-bold text-ink m-0">Perlindungan Penuh Zona Penyangga Taman Nasional Ujung Kulon</p>
+            <div class="progress-track w-full"><div class="bg-alert h-full rounded-full" style="width: 96%;"></div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===================================================================
+         CENTERED APPLE-STYLE MODAL OVERLAY (24px Squircle + Backdrop Blur)
+         =================================================================== -->
+    <div class="modal-backdrop absolute inset-0 z-40 flex items-center justify-center p-md">
+
+      <section role="dialog" aria-modal="true" aria-labelledby="modal-title" class="modal-shadow apple-hairline w-full max-w-[540px] bg-primary rounded-xl p-xl flex flex-col gap-lg">
+        <!-- Modal Header -->
+        <header class="flex items-start justify-between gap-md">
+          <div class="flex flex-col gap-xs">
+            <h1 id="modal-title" class="font-headline text-title-lg text-ink m-0 text-balance">
+              Buat Petisi Baru.
+            </h1>
+            <p class="font-body text-body-sm text-muted m-0 text-pretty">
+              Luncurkan kampanye tanda tangan publik untuk mendorong perlindungan alam dan aksi nyata.
+            </p>
+          </div>
+          <a href="../admin-movements/AdminMovements.html" aria-label="Tutup modal" class="w-8 h-8 rounded-full bg-canvas text-muted hover:text-ink inline-flex items-center justify-center transition-colors shrink-0">
+            <span class="material-symbols-outlined text-title-md" aria-hidden="true">close</span>
+          </a>
+        </header>
+
+        <!-- Modal Form -->
+        <form id="new-petition-form" class="flex flex-col gap-md">
+
+          <!-- Judul Petisi -->
+          <div class="flex flex-col gap-xs">
+            <label for="petition-title" class="font-label text-label-sm text-ink font-medium">
+              Judul Petisi
+            </label>
+            <input id="petition-title" type="text" required placeholder="Contoh: Hentikan Penambangan Pasir Laut di Pesisir Demak" class="apple-input w-full h-12 rounded bg-canvas/50 px-md font-body text-body-sm text-ink placeholder:text-muted">
+          </div>
+
+          <!-- Pilar Isu Selector Pills -->
+          <div class="flex flex-col gap-xs">
+            <span class="font-label text-label-sm text-ink font-medium">Pilar Isu</span>
+            <div class="flex flex-wrap gap-sm" role="radiogroup" aria-label="Pilih pilar isu petisi">
+              <button type="button" data-pillar-pill class="pillar-pill rounded-full px-md py-sm bg-ink text-on-ink font-label text-label-sm font-semibold transition-colors">
+                For the Forest
+              </button>
+              <button type="button" data-pillar-pill class="pillar-pill apple-hairline rounded-full px-md py-sm bg-canvas text-ink font-label text-label-sm font-medium hover:bg-primary transition-colors">
+                For the Animal
+              </button>
+              <button type="button" data-pillar-pill class="pillar-pill apple-hairline rounded-full px-md py-sm bg-canvas text-ink font-label text-label-sm font-medium hover:bg-primary transition-colors">
+                For the People
+              </button>
+            </div>
+          </div>
+
+          <!-- Target Tanda Tangan & Tautan Petisi -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+            <div class="flex flex-col gap-xs">
+              <label for="petition-target" class="font-label text-label-sm text-ink font-medium">
+                Target Tanda Tangan
+              </label>
+              <input id="petition-target" type="text" inputmode="numeric" required value="50.000" placeholder="50.000" class="apple-input w-full h-12 rounded bg-canvas/50 px-md font-body text-body-sm text-ink tabular-nums placeholder:text-muted">
+            </div>
+
+            <div class="flex flex-col gap-xs">
+              <label for="petition-url" class="font-label text-label-sm text-ink font-medium">
+                Tautan Petisi
+              </label>
+              <input id="petition-url" type="url" required placeholder="https://iclimate.id/petisi/..." class="apple-input w-full h-12 rounded bg-canvas/50 px-md font-body text-body-sm text-ink placeholder:text-muted">
+            </div>
+          </div>
+
+          <!-- Modal Footer Actions -->
+          <footer class="pt-md border-t border-ink/5 flex flex-wrap items-center justify-end gap-sm">
+            <a href="../admin-movements/AdminMovements.html" class="apple-hairline h-11 inline-flex items-center justify-center rounded-full bg-primary text-ink px-lg font-label text-label-lg hover:bg-canvas transition-colors">
+              Batal
+            </a>
+            <button type="submit" id="publish-petition-btn" class="h-11 inline-flex items-center justify-center rounded-full bg-ink text-on-ink px-xl font-label text-label-lg hover:bg-obsidian transition-colors">
+              Publikasikan Petisi
+            </button>
+          </footer>
+
+        </form>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      const pillarPills = document.querySelectorAll('[data-pillar-pill]');
+      pillarPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          pillarPills.forEach(function (p) {
+            const active = p === pill;
+            p.classList.toggle('bg-ink', active);
+            p.classList.toggle('text-on-ink', active);
+            p.classList.toggle('font-semibold', active);
+            p.classList.toggle('bg-canvas', !active);
+            p.classList.toggle('text-ink', !active);
+            p.classList.toggle('font-medium', !active);
+            p.classList.toggle('apple-hairline', !active);
+          });
+        });
+      });
+
+      const form = document.getElementById('new-petition-form');
+      const submitBtn = document.getElementById('publish-petition-btn');
+      if (form && submitBtn) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          submitBtn.textContent = 'Petisi Dipublikasikan ✓';
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

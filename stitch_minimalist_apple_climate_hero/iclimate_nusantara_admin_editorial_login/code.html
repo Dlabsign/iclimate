@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Admin &amp; Editorial Login</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background-color: rgba(20, 24, 21, 0.58);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .apple-input {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .apple-input:focus {
+      outline: none;
+      border-color: #1D1D1F;
+      box-shadow: 0 0 0 3px rgba(29, 29, 31, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <main class="min-h-[1024px] w-full bg-canvas grid grid-cols-1 lg:grid-cols-2" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- ===================================================================
+         LEFT PANEL: 50% Atmospheric Dark Obsidian Squircle (28px, 16px margin)
+         =================================================================== -->
+    <section aria-label="Portal Editorial ICLIMATE" class="p-md flex items-stretch">
+      <div class="relative w-full min-h-[460px] lg:min-h-[calc(1024px-32px)] rounded-lg overflow-hidden bg-obsidian flex flex-col justify-between p-xl" data-stitch-vh="lg:min-h-[calc(1024px-32px)]===lg:min-h-[calc(100vh-32px)]">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrCWovd4H7yBXtKcvlg4Jrm9PJtLJ2806e3xcxq0yTHBrBIknI4IVB0rh6BSJRrrqJXdgj3WOUs-tzrhF2L6Na4Bl6XdsEZgOpI_ajI_1SoxZGims-4bMesN6LXRNvJganGrKDBz9SQVsmshAA1-AfbuhD__bmcyg2jV3qa8Zp1FjsfIYmMIJoptsRHYG-oSvVnGLz2P450Aesg8SNdZLanPtvBeoyRl5_KxqVgKLc-v9fSpu6axy8Eqm_GlG6ktK50aiQlRHiF9" alt="Hutan hujan tropis Indonesia saat senja dengan cahaya keemasan" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none">
+        <div class="absolute inset-0 bg-gradient-to-b from-obsidian/45 via-transparent to-obsidian/90 pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-obsidian/80 via-transparent to-obsidian/30 pointer-events-none"></div>
+
+        <!-- Top-Left Glassmorphic Badge -->
+        <div class="relative z-10">
+          <span class="apple-glass-nav inline-flex items-center gap-sm rounded-full px-md py-xs font-label text-label-xs text-primary uppercase">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+            <span>ICLIMATE • Editorial &amp; Admin Portal</span>
+          </span>
+        </div>
+
+        <!-- Bottom-Left Editorial Quote & Access Caption -->
+        <div class="relative z-10 max-w-[420px] flex flex-col gap-sm">
+          <p class="font-headline text-headline-md text-primary text-balance m-0">
+            Menjaga kredibilitas fakta dan menyuarakan realitas alam Indonesia.
+          </p>
+          <p class="font-label text-label-sm text-muted-dark m-0">
+            Akses terbatas untuk tim editorial, verifikator lapangan, dan superadmin.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         RIGHT PANEL: 50% Clean Apple Off-White Auth Form (max-width 380px)
+         =================================================================== -->
+    <section aria-label="Formulir Masuk Tim" class="flex items-center justify-center px-lg py-2xl">
+      <div class="w-full max-w-[380px] flex flex-col gap-xl">
+
+        <!-- Brand Header -->
+        <header class="text-center flex flex-col items-center gap-sm">
+          <span class="font-title text-title-sm text-ink tracking-tight">ICLIMATE</span>
+          <h1 class="font-headline text-headline-xl-mobile text-ink m-0 text-balance">
+            Masuk ke Ruang Kendali.
+          </h1>
+          <p class="font-body text-body-sm text-muted m-0 text-pretty">
+            Masukkan kredensial tim untuk mengelola cerita, petisi, dan verifikasi laporan publik.
+          </p>
+        </header>
+
+        <!-- Auth Form -->
+        <form id="admin-login-form" class="flex flex-col gap-md">
+          <!-- Email Field -->
+          <div class="flex flex-col gap-xs">
+            <label for="team-email" class="font-label text-label-sm text-ink font-medium">
+              Email Tim
+            </label>
+            <input id="team-email" type="email" required autocomplete="email" placeholder="editor@iclimate.id" class="apple-input w-full h-12 rounded bg-primary px-md font-body text-body-sm text-ink placeholder:text-muted">
+          </div>
+
+          <!-- Password Field -->
+          <div class="flex flex-col gap-xs">
+            <div class="flex items-center justify-between">
+              <label for="team-password" class="font-label text-label-sm text-ink font-medium">
+                Kata Sandi
+              </label>
+              <a href="#forgot-password" class="font-label text-label-sm text-muted hover:text-ink transition-colors">
+                Lupa sandi?
+              </a>
+            </div>
+            <div class="relative">
+              <input id="team-password" type="password" required autocomplete="current-password" placeholder="••••••••••••" class="apple-input w-full h-12 rounded bg-primary pl-md pr-2xl font-body text-body-sm text-ink placeholder:text-muted">
+              <button type="button" id="toggle-password-btn" aria-label="Tampilkan kata sandi" class="absolute right-sm top-1/2 -translate-y-1/2 w-8 h-8 inline-flex items-center justify-center rounded-full text-muted hover:text-ink transition-colors">
+                <span id="toggle-password-icon" class="material-symbols-outlined text-title-md">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Remember Device Checkbox -->
+          <label class="inline-flex items-center gap-sm pt-xs cursor-pointer">
+            <input type="checkbox" class="rounded-sm border-ink/20 text-ink focus:ring-0">
+            <span class="font-body text-body-sm text-ink/80">Ingat perangkat ini selama 7 hari</span>
+          </label>
+
+          <!-- Primary CTA Pill Button -->
+          <div class="pt-sm">
+            <button type="submit" id="login-submit-btn" class="w-full h-12 inline-flex items-center justify-center gap-sm bg-ink text-on-ink rounded-full px-lg font-label text-label-lg hover:bg-obsidian transition-colors">
+              <span>Masuk ke Dashboard</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+
+          <!-- 2FA Security Note -->
+          <div class="flex items-start gap-sm pt-xs text-muted">
+            <span class="material-symbols-outlined text-body-sm mt-0.5 shrink-0" aria-hidden="true">lock</span>
+            <p class="font-label text-label-sm text-muted m-0 text-pretty">
+              Dilindungi autentikasi dua faktor (2FA) untuk keamanan data pelapor.
+            </p>
+          </div>
+        </form>
+
+        <!-- Bottom Back-to-Site Link -->
+        <footer class="pt-sm text-center">
+          <a href="../nusantara-landing/NusantaraLanding.html" class="inline-flex items-center gap-xs font-label text-label-sm text-muted hover:text-ink transition-colors">
+            <span aria-hidden="true">←</span>
+            <span>Kembali ke halaman utama ICLIMATE</span>
+          </a>
+        </footer>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    (function () {
+      const pwInput = document.getElementById('team-password');
+      const toggleBtn = document.getElementById('toggle-password-btn');
+      const toggleIcon = document.getElementById('toggle-password-icon');
+
+      if (pwInput && toggleBtn && toggleIcon) {
+        toggleBtn.addEventListener('click', function () {
+          const isHidden = pwInput.type === 'password';
+          pwInput.type = isHidden ? 'text' : 'password';
+          toggleIcon.textContent = isHidden ? 'visibility_off' : 'visibility';
+        });
+      }
+
+      const form = document.getElementById('admin-login-form');
+      const submitBtn = document.getElementById('login-submit-btn');
+      if (form && submitBtn) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          submitBtn.querySelector('span').textContent = 'Memverifikasi Sesi 2FA...';
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

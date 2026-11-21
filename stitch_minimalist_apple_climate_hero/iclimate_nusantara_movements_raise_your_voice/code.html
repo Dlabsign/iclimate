@@ -1,0 +1,505 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Movements &amp; Raise Your Voice</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Permanent+Marker&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .font-graffiti-marker {
+      font-family: 'Permanent Marker', cursive;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      display: inline-block;
+      transform: rotate(-1.5deg);
+      transform-origin: left center;
+    }
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background-color: rgba(20, 24, 21, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+    .dark-glass-panel {
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .dark-glass-input {
+      background-color: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .dark-glass-input:focus {
+      outline: none;
+      border-color: rgba(255, 255, 255, 0.45);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .hairline-dark {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <!-- =====================================================================
+       SECTION 1: STICKY MINIMALIST GLASSMORPHIC NAVBAR
+       ===================================================================== -->
+  <div class="sticky top-md z-30 w-full px-md pt-md pointer-events-none">
+    <nav aria-label="Primary Navigation" class="pointer-events-auto max-w-6xl mx-auto apple-glass-nav rounded-full px-lg py-sm grid grid-cols-3 items-center">
+      <ul class="flex items-center gap-lg list-none m-0 p-0">
+        <li>
+          <a href="../stories-viral/StoriesViral.html" class="font-label text-label-sm text-on-surface/75 hover:text-primary transition-colors whitespace-nowrap">Stories</a>
+        </li>
+        <li>
+          <a href="#" aria-current="page" class="font-label text-label-sm text-primary transition-colors whitespace-nowrap">Movements</a>
+        </li>
+        <li class="hidden md:block">
+          <a href="#report-portal" class="font-label text-label-sm text-on-surface/75 hover:text-primary transition-colors whitespace-nowrap">Raise Your Voice</a>
+        </li>
+        <li class="hidden md:block">
+          <a href="../climate-map/ClimateMap.html" class="font-label text-label-sm text-on-surface/75 hover:text-primary transition-colors whitespace-nowrap">About</a>
+        </li>
+      </ul>
+
+      <a href="../nusantara-landing/NusantaraLanding.html" class="justify-self-center font-title text-title-md text-primary tracking-tight">ICLIMATE</a>
+
+      <div class="justify-self-end">
+        <a href="#report-portal" class="group inline-flex items-center gap-sm bg-ink text-on-ink rounded-full pl-md pr-xs py-xs border border-primary/15 transition-colors hover:bg-obsidian">
+          <span class="font-label text-label-sm whitespace-nowrap">Suarakan Sekarang</span>
+          <span class="inline-flex items-center justify-center w-lg h-lg rounded-full bg-primary text-on-primary transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+            <span class="material-symbols-outlined text-label-sm">arrow_forward</span>
+          </span>
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <main class="w-full max-w-6xl mx-auto px-lg md:px-2xl">
+
+    <!-- =====================================================================
+         SECTION 2: PAGE HEADER & IMPACT OVERVIEW
+         ===================================================================== -->
+    <header class="pt-3xl pb-2xl">
+      <h1 class="font-headline text-headline-xl-mobile md:text-headline-xl text-ink m-0 text-balance">
+        Jangan Hanya Membaca. Ikut <span class="font-graffiti-marker">Bergerak.</span>
+      </h1>
+      <p class="font-body text-body-lg text-muted max-w-2xl mt-md mb-xl text-pretty">
+        Pilih cara berkontribusi yang paling dekat denganmu—mulai dari menandatangani petisi kebijakan, bergabung dengan komunitas lokal, hingga <span class="font-graffiti-marker">melaporkan krisis alam</span> di daerahmu.
+      </p>
+
+      <!-- Horizontal Pill Category Tabs -->
+      <div role="tablist" aria-label="Kategori Kontribusi" class="flex flex-wrap items-center gap-sm">
+        <button type="button" data-tab="petisi" class="action-tab rounded-full px-lg py-sm font-label text-label-sm bg-ink text-on-ink transition-colors">
+          Petisi Mendesak
+        </button>
+        <button type="button" data-tab="komunitas" class="action-tab rounded-full px-lg py-sm font-label text-label-sm bg-primary text-ink border border-ink/10 hover:border-ink/25 transition-colors">
+          Komunitas &amp; Relawan Lokal
+        </button>
+        <button type="button" data-tab="harian" class="action-tab rounded-full px-lg py-sm font-label text-label-sm bg-primary text-ink border border-ink/10 hover:border-ink/25 transition-colors">
+          Aksi Harian
+        </button>
+        <a href="#report-portal" class="rounded-full px-lg py-sm font-label text-label-sm bg-primary text-ink border border-ink/10 hover:border-ink/25 transition-colors">
+          Lapor Kejadian
+        </a>
+      </div>
+    </header>
+
+    <!-- =====================================================================
+         SECTION 3: ACTIVE PETITIONS & GRASSROOTS DIRECTORY ("Suara dalam Aksi")
+         ===================================================================== -->
+    <section aria-label="Suara dalam Aksi" class="pb-3xl flex flex-col gap-xl">
+
+      <!-- 2-Column Editorial Petition Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg items-stretch">
+        <!-- Card 1: PETISI • FOR THE FOREST -->
+        <article class="bg-primary rounded-md p-xl border border-ink/10 flex flex-col justify-between gap-xl h-full">
+          <div class="flex flex-col gap-md">
+            <span class="self-start inline-flex items-center gap-xs rounded-full bg-canvas px-md py-xs border border-ink/10 font-label text-label-xs text-ink uppercase">
+              <span class="w-1.5 h-1.5 rounded-full bg-alert"></span>
+              <span>Petisi • For the Forest</span>
+            </span>
+
+            <h2 class="font-title text-title-lg text-ink text-balance m-0">
+              Audit &amp; Moratorium Izin Pembukaan Lahan Gambut Baru
+            </h2>
+
+            <p class="font-body text-body-md text-ink/80 text-pretty m-0">
+              Desak penegakan hukum tegas terhadap pembakaran lahan dan perlindungan kawasan hidrologis gambut di Sumatra dan Kalimantan.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-md">
+            <div class="flex flex-col gap-sm">
+              <div class="w-full h-1.5 rounded-full bg-ink/10 overflow-hidden">
+                <div class="h-full rounded-full bg-alert" style="width: 72%;"></div>
+              </div>
+              <span class="font-label text-label-sm text-muted tabular-nums">72.450 dari 100.000 tanda tangan</span>
+            </div>
+
+            <button type="button" class="sign-btn w-full inline-flex items-center justify-center gap-sm bg-ink text-on-ink rounded-full px-lg py-md font-label text-label-lg hover:bg-obsidian transition-colors">
+              <span>Tanda Tangani Sekarang</span>
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 2: PETISI • FOR THE ANIMAL -->
+        <article class="bg-primary rounded-md p-xl border border-ink/10 flex flex-col justify-between gap-xl h-full">
+          <div class="flex flex-col gap-md">
+            <span class="self-start inline-flex items-center gap-xs rounded-full bg-canvas px-md py-xs border border-ink/10 font-label text-label-xs text-ink uppercase">
+              <span class="w-1.5 h-1.5 rounded-full bg-alert"></span>
+              <span>Petisi • For the Animal</span>
+            </span>
+
+            <h2 class="font-title text-title-lg text-ink text-balance m-0">
+              Perlindungan Penuh Zona Penyangga Taman Nasional Ujung Kulon
+            </h2>
+
+            <p class="font-body text-body-md text-ink/80 text-pretty m-0">
+              Pastikan tidak ada alih fungsi lahan yang mengganggu koridor ekosistem dan rencana konservasi Badak Jawa.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-md">
+            <div class="flex flex-col gap-sm">
+              <div class="w-full h-1.5 rounded-full bg-ink/10 overflow-hidden">
+                <div class="h-full rounded-full bg-alert" style="width: 96%;"></div>
+              </div>
+              <span class="font-label text-label-sm text-muted tabular-nums">48.200 dari 50.000 tanda tangan</span>
+            </div>
+
+            <button type="button" class="sign-btn w-full inline-flex items-center justify-center gap-sm bg-ink text-on-ink rounded-full px-lg py-md font-label text-label-lg hover:bg-obsidian transition-colors">
+              <span>Tanda Tangani Sekarang</span>
+              <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Grassroots Community Strip (3 compact 20px cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-lg items-stretch">
+        <article class="bg-primary rounded-md p-lg border border-ink/10 flex flex-col justify-between gap-md h-full">
+          <div>
+            <span class="font-label text-label-xs text-muted uppercase">Kalimantan Tengah</span>
+            <h3 class="font-title text-title-sm text-ink mt-xs mb-xs m-0">Masyarakat Peduli Api (MPA)</h3>
+            <p class="font-body text-body-sm text-muted m-0">Patroli pencegahan karhutla desa</p>
+          </div>
+          <a href="#report-portal" class="inline-flex items-center gap-xs font-label text-label-lg text-ink hover:text-muted transition-colors">
+            <span>Dukung Logistik</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="bg-primary rounded-md p-lg border border-ink/10 flex flex-col justify-between gap-md h-full">
+          <div>
+            <span class="font-label text-label-xs text-muted uppercase">Semarang &amp; Demak</span>
+            <h3 class="font-title text-title-sm text-ink mt-xs mb-xs m-0">Jaringan Pemuda Pesisir</h3>
+            <p class="font-body text-body-sm text-muted m-0">Restorasi mangrove akhir pekan</p>
+          </div>
+          <a href="#report-portal" class="inline-flex items-center gap-xs font-label text-label-lg text-ink hover:text-muted transition-colors">
+            <span>Gabung Relawan</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+
+        <article class="bg-primary rounded-md p-lg border border-ink/10 flex flex-col justify-between gap-md h-full">
+          <div>
+            <span class="font-label text-label-xs text-muted uppercase">Jakarta &amp; 12 Kota</span>
+            <h3 class="font-title text-title-sm text-ink mt-xs mb-xs m-0">Koalisi Udara Bersih</h3>
+            <p class="font-body text-body-sm text-muted m-0">Advokasi kebijakan emisi perkotaan</p>
+          </div>
+          <a href="#report-portal" class="inline-flex items-center gap-xs font-label text-label-lg text-ink hover:text-muted transition-colors">
+            <span>Lihat Jadwal</span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </article>
+      </div>
+
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4: PUBLIC REPORTING PORTAL ("Suarakan Kondisi Alam di Daerahmu")
+         ===================================================================== -->
+    <section id="report-portal" aria-label="Portal Laporan Publik" class="pb-3xl">
+      <div class="bg-obsidian text-on-obsidian rounded-lg p-xl md:p-2xl grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+
+        <!-- Left Column (60% -> 7 cols): Clean Minimalist Report Form -->
+        <div class="lg:col-span-7 dark-glass-panel rounded-md p-xl flex flex-col gap-lg">
+          <div>
+            <h2 class="font-headline text-headline-bold text-primary m-0">
+              <span class="font-graffiti-marker">Suarakan</span> Kondisi Alam di Daerahmu.
+            </h2>
+            <p class="font-body text-body-sm text-muted-dark mt-sm m-0">
+              Melihat pembukaan hutan ilegal, pencemaran sungai, abrasi parah, atau satwa terdesak? Kirimkan bukti dan ceritanya.
+            </p>
+          </div>
+
+          <!-- Pillar Selector Pills -->
+          <div class="flex flex-wrap items-center gap-sm" role="radiogroup" aria-label="Pilih Pilar Kejadian">
+            <button type="button" class="pillar-pill rounded-full px-md py-xs font-label text-label-sm bg-primary text-on-primary transition-colors">
+              For the Forest
+            </button>
+            <button type="button" class="pillar-pill rounded-full px-md py-xs font-label text-label-sm bg-transparent text-on-surface/80 border border-primary/20 hover:border-primary/40 transition-colors">
+              For the Animal
+            </button>
+            <button type="button" class="pillar-pill rounded-full px-md py-xs font-label text-label-sm bg-transparent text-on-surface/80 border border-primary/20 hover:border-primary/40 transition-colors">
+              For the People
+            </button>
+          </div>
+
+          <form id="public-report-form" class="flex flex-col gap-md">
+            <div class="flex flex-col gap-xs">
+              <label for="report-title" class="font-label text-label-sm text-primary">Judul Kejadian</label>
+              <input id="report-title" type="text" placeholder="Contoh: Banjir rob merendam 3 desa di pesisir utara sejak pekan lalu" class="dark-glass-input w-full rounded px-md py-sm font-body text-body-sm text-primary placeholder:text-muted-dark">
+            </div>
+
+            <div class="flex flex-col gap-xs">
+              <label for="report-location" class="font-label text-label-sm text-primary">Lokasi Kejadian</label>
+              <input id="report-location" type="text" placeholder="Kota / Kabupaten / Provinsi" class="dark-glass-input w-full rounded px-md py-sm font-body text-body-sm text-primary placeholder:text-muted-dark">
+            </div>
+
+            <div class="flex flex-col gap-xs">
+              <label for="report-story" class="font-label text-label-sm text-primary">Kronologi &amp; Dampak Singkat</label>
+              <textarea id="report-story" rows="3" placeholder="Jelaskan kapan kejadian berlangsung dan dampaknya terhadap lingkungan atau warga sekitar..." class="dark-glass-input w-full rounded px-md py-sm font-body text-body-sm text-primary placeholder:text-muted-dark"></textarea>
+            </div>
+
+            <!-- Dashed Upload Dropzone -->
+            <div class="flex flex-col gap-xs">
+              <span class="font-label text-label-sm text-primary">Unggah Bukti Visual</span>
+              <label class="dark-glass-input rounded border-dashed border border-primary/25 p-lg flex flex-col items-center justify-center gap-xs text-center cursor-pointer hover:border-primary/45 transition-colors">
+                <span class="material-symbols-outlined text-title-md text-on-surface/80" aria-hidden="true">photo_camera</span>
+                <span class="font-body text-body-sm text-on-surface/85">Seret foto/video ke sini atau pilih file (JPG, PNG, MP4 • Maks. 25MB)</span>
+                <input type="file" class="sr-only" accept="image/*,video/mp4">
+              </label>
+            </div>
+
+            <!-- Identitas Pelapor -->
+            <div class="flex flex-col gap-sm pt-xs">
+              <span class="font-label text-label-sm text-primary">Identitas Pelapor</span>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+                <input type="text" aria-label="Nama atau Inisial" placeholder="Nama / Inisial" class="dark-glass-input w-full rounded px-md py-sm font-body text-body-sm text-primary placeholder:text-muted-dark">
+                <input type="email" aria-label="Email atau Kontak" placeholder="Email / Kontak" class="dark-glass-input w-full rounded px-md py-sm font-body text-body-sm text-primary placeholder:text-muted-dark">
+              </div>
+              <label class="inline-flex items-center gap-sm pt-xs cursor-pointer">
+                <input type="checkbox" checked class="rounded-sm bg-obsidian border-primary/30 text-alert focus:ring-0">
+                <span class="font-body text-body-sm text-muted-dark">Rahasiakan identitas saya saat dipublikasikan</span>
+              </label>
+            </div>
+
+            <div class="pt-sm">
+              <button type="submit" id="submit-report-btn" class="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-on-primary rounded-full px-xl py-sm font-label text-label-lg hover:bg-canvas transition-colors">
+                Kirim Laporan untuk Diverifikasi
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right Column (40% -> 5 cols): Credibility & Verification Standards -->
+        <aside class="lg:col-span-5 lg:pl-lg flex flex-col gap-lg">
+          <span class="self-start rounded-full px-md py-xs border border-primary/20 font-label text-label-xs text-primary uppercase">
+            Standar Kredibilitas
+          </span>
+
+          <h3 class="font-title text-title-lg text-primary text-balance m-0">
+            Bagaimana Kami Memverifikasi Laporanmu.
+          </h3>
+
+          <div class="flex flex-col">
+            <div class="hairline-dark py-lg flex flex-col gap-xs">
+              <h4 class="font-title text-title-md text-primary m-0">01. Verifikasi Metadata Visual</h4>
+              <p class="font-body text-body-sm text-muted-dark text-pretty m-0">
+                Pengecekan keaslian waktu, koordinat lokasi, dan bukti foto/video lapangan.
+              </p>
+            </div>
+
+            <div class="hairline-dark py-lg flex flex-col gap-xs">
+              <h4 class="font-title text-title-md text-primary m-0">02. Pencocokan Data Satelit</h4>
+              <p class="font-body text-body-sm text-muted-dark text-pretty m-0">
+                Validasi silang dengan citra satelit titik panas atau perubahan tutupan lahan resmi.
+              </p>
+            </div>
+
+            <div class="py-lg flex flex-col gap-xs">
+              <h4 class="font-title text-title-md text-primary m-0">03. Konfirmasi Konteks &amp; Publikasi</h4>
+              <p class="font-body text-body-sm text-muted-dark text-pretty m-0">
+                Penyusunan narasi berimbang sebelum diterbitkan ke publik.
+              </p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       SECTION 5: MINIMALIST APPLE-STYLE FOOTER
+       ===================================================================== -->
+  <footer class="w-full bg-canvas border-t border-ink/10 py-2xl px-lg md:px-2xl">
+    <div class="max-w-6xl mx-auto flex flex-col gap-lg">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-lg">
+        <div>
+          <span class="font-title text-title-md text-ink tracking-tight">ICLIMATE</span>
+          <p class="font-body text-body-sm text-muted mt-xs m-0">Amplifying Indonesia’s environmental truth.</p>
+        </div>
+
+        <nav aria-label="Footer Navigation" class="flex flex-wrap items-center gap-lg">
+          <a href="../nusantara-landing/NusantaraLanding.html" class="font-label text-label-sm text-muted hover:text-ink transition-colors">Home</a>
+          <a href="../stories-viral/StoriesViral.html" class="font-label text-label-sm text-muted hover:text-ink transition-colors">Stories</a>
+          <a href="#" class="font-label text-label-sm text-ink transition-colors">Movements</a>
+          <a href="../climate-map/ClimateMap.html" class="font-label text-label-sm text-muted hover:text-ink transition-colors">About &amp; Data</a>
+        </nav>
+      </div>
+
+      <div class="pt-md border-t border-ink/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-sm">
+        <span class="font-label text-label-sm text-muted">© 2026 ICLIMATE Nusantara. Aksi sipil &amp; pelaporan lingkungan independen.</span>
+        <span class="font-label text-label-sm text-muted">Jakarta · Kalimantan · Ujung Kulon</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const actionTabs = document.querySelectorAll('.action-tab');
+      actionTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          actionTabs.forEach(function (t) {
+            t.classList.remove('bg-ink', 'text-on-ink');
+            t.classList.add('bg-primary', 'text-ink', 'border', 'border-ink/10');
+          });
+          tab.classList.remove('bg-primary', 'text-ink', 'border', 'border-ink/10');
+          tab.classList.add('bg-ink', 'text-on-ink');
+        });
+      });
+
+      const pillarPills = document.querySelectorAll('.pillar-pill');
+      pillarPills.forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          pillarPills.forEach(function (p) {
+            p.classList.remove('bg-primary', 'text-on-primary');
+            p.classList.add('bg-transparent', 'text-on-surface/80', 'border', 'border-primary/20');
+          });
+          pill.classList.remove('bg-transparent', 'text-on-surface/80', 'border', 'border-primary/20');
+          pill.classList.add('bg-primary', 'text-on-primary');
+        });
+      });
+
+      const signBtns = document.querySelectorAll('.sign-btn');
+      signBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btn.querySelector('span').textContent = 'Suara Tercatat ✓';
+        });
+      });
+
+      const form = document.getElementById('public-report-form');
+      const submitBtn = document.getElementById('submit-report-btn');
+      if (form && submitBtn) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          submitBtn.textContent = 'Laporan Terkirim untuk Verifikasi ✓';
+        });
+      }
+    })();
+  </script>
+
+
+</body></html>

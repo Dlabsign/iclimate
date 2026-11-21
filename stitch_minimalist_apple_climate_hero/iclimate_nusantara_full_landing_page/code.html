@@ -1,0 +1,491 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ICLIMATE Nusantara — Full Landing Page</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'canvas': '#F5F5F7',
+        'on-canvas': '#1D1D1F',
+        'primary': '#FFFFFF',
+        'on-primary': '#1D1D1F',
+        'surface': '#141815',
+        'on-surface': '#F5F5F7',
+        'surface-container': '#0F2A1D',
+        'on-surface-container': '#F5F5F7',
+        'ink': '#1D1D1F',
+        'on-ink': '#FFFFFF',
+        'obsidian': '#0D100E',
+        'on-obsidian': '#FFFFFF',
+        'muted': '#6E6E73',
+        'muted-dark': '#A1A1A6',
+        'alert': '#E85D2A',
+        'alert-ink': '#C44114',
+        'accent': '#D99B26',
+        'on-accent': '#1D1D1F',
+        'outline': '#3A423D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '12px',
+        'md': '20px',
+        'xl': '24px',
+        'lg': '28px',
+        'full': '9999px',
+      },
+      spacing: {
+        'xs': '4px',
+        'sm': '8px',
+        'md': '16px',
+        'lg': '24px',
+        'xl': '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontFamily: {
+        'display': ['"Inter"', 'sans-serif'],
+        'headline': ['"Inter"', 'sans-serif'],
+        'title': ['"Inter"', 'sans-serif'],
+        'body': ['"Inter"', 'sans-serif'],
+        'label': ['"Inter"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-xl': ['120px', { lineHeight: '114px', letterSpacing: '-4.8px', fontWeight: '700' }],
+        'display-xl-mobile': ['32px', { lineHeight: '34px', letterSpacing: '-1.28px', fontWeight: '700' }],
+        'headline-xl': ['48px', { lineHeight: '52px', letterSpacing: '-1.44px', fontWeight: '700' }],
+        'headline-xl-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.96px', fontWeight: '700' }],
+        'headline-lg': ['44px', { lineHeight: '48px', letterSpacing: '-1.32px', fontWeight: '700' }],
+        'headline-lg-mobile': ['30px', { lineHeight: '34px', letterSpacing: '-0.9px', fontWeight: '700' }],
+        'headline-md': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '500' }],
+        'headline-bold': ['28px', { lineHeight: '34px', letterSpacing: '-0.56px', fontWeight: '700' }],
+        'title-lg': ['24px', { lineHeight: '30px', letterSpacing: '-0.48px', fontWeight: '700' }],
+        'title-sm': ['20px', { lineHeight: '26px', letterSpacing: '-0.4px', fontWeight: '600' }],
+        'title-md': ['17px', { lineHeight: '22px', letterSpacing: '-0.34px', fontWeight: '600' }],
+        'body-lg': ['17px', { lineHeight: '25px', letterSpacing: '-0.17px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '-0.14px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '18px', letterSpacing: '-0.14px', fontWeight: '600' }],
+        'label-sm': ['13px', { lineHeight: '16px', letterSpacing: '-0.13px', fontWeight: '400' }],
+        'label-xs': ['11px', { lineHeight: '14px', letterSpacing: '0.44px', fontWeight: '600' }],
+      },
+      transitionDuration: {
+        'state-change': '180ms',
+        'surface-enter': '320ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Permanent+Marker&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .font-graffiti-marker {
+      font-family: 'Permanent Marker', cursive;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      display: inline-block;
+      transform: rotate(-1.5deg);
+      transform-origin: left center;
+    }
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      line-height: 1 !important;
+      box-sizing: content-box;
+      overflow: hidden;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .apple-glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background-color: rgba(20, 24, 21, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .apple-glass-pill {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .hairline-divider {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-canvas text-on-canvas antialiased selection:bg-ink selection:text-primary">
+
+  <!-- =====================================================================
+       SECTION 1: HERO SECTION (The Voice & Urgency)
+       ===================================================================== -->
+  <div class="w-full bg-canvas p-md">
+    <header class="relative w-full min-h-[640px] lg:h-[calc(1024px-32px)] lg:max-h-[780px] rounded-lg overflow-hidden bg-surface flex flex-col justify-between" data-stitch-vh="lg:h-[calc(1024px-32px)]===lg:h-[calc(100vh-32px)]">
+      <!-- Atmospheric Twilight Rainforest Background -->
+      <img src="https://lh3.googleusercontent.com/aida/ALJJyrCWovd4H7yBXtKcvlg4Jrm9PJtLJ2806e3xcxq0yTHBrBIknI4IVB0rh6BSJRrrqJXdgj3WOUs-tzrhF2L6Na4Bl6XdsEZgOpI_ajI_1SoxZGims-4bMesN6LXRNvJganGrKDBz9SQVsmshAA1-AfbuhD__bmcyg2jV3qa8Zp1FjsfIYmMIJoptsRHYG-oSvVnGLz2P450Aesg8SNdZLanPtvBeoyRl5_KxqVgKLc-v9fSpu6axy8Eqm_GlG6ktK50aiQlRHiF9" alt="Indonesian tropical rainforest canopy at twilight with long-exposure amber light streaks" class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none">
+      <div class="absolute inset-0 bg-gradient-to-b from-surface/40 via-transparent to-surface/85 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-tr from-surface/75 via-transparent to-surface/25 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-l from-surface/80 via-surface/35 to-transparent pointer-events-none"></div>
+
+      <!-- Floating Glassmorphism Pill Navbar -->
+      <div class="relative z-20 p-md">
+        <nav aria-label="Primary Navigation" class="apple-glass-nav w-full rounded-full px-lg py-sm grid grid-cols-3 items-center">
+          <ul class="flex items-center gap-lg list-none m-0 p-0">
+            <li><a href="#pillars" class="font-label text-label-sm text-on-surface/85 hover:text-primary transition-colors whitespace-nowrap">The Voice</a></li>
+            <li><a href="#movements" class="font-label text-label-sm text-on-surface/85 hover:text-primary transition-colors whitespace-nowrap">Movements</a></li>
+            <li class="hidden md:block"><a href="#viral" class="font-label text-label-sm text-on-surface/85 hover:text-primary transition-colors whitespace-nowrap">Viral Now</a></li>
+            <li class="hidden md:block"><a href="../climate-map/ClimateMap.html" class="font-label text-label-sm text-on-surface/85 hover:text-primary transition-colors whitespace-nowrap">Live Map</a></li>
+          </ul>
+
+          <a href="#" class="justify-self-center font-title text-title-md text-primary tracking-tight">ICLIMATE</a>
+
+          <div class="justify-self-end">
+            <a href="#movements" class="group inline-flex items-center gap-sm bg-primary text-on-primary rounded-full pl-md pr-xs py-xs transition-colors hover:bg-canvas">
+              <span class="font-label text-label-sm font-semibold whitespace-nowrap">Raise Your Voice</span>
+              <span class="inline-flex items-center justify-center w-lg h-lg rounded-full bg-ink text-on-ink transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+                <span class="material-symbols-outlined text-label-sm">arrow_forward</span>
+              </span>
+            </a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Middle-Right Floating Tagline -->
+      <div class="relative z-10 flex-1 grid grid-cols-12 px-xl md:px-2xl items-center">
+        <div class="col-span-12 md:col-start-8 md:col-span-5">
+          <p class="font-headline text-headline-md text-primary text-balance m-0">
+            Indonesia’s nature is <span class="font-graffiti-marker">speaking.</span> Are we listening?
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom-Left Giant Display Title + Bottom-Right Microcopy & CTA -->
+      <div class="relative z-10 px-xl md:px-2xl pb-xl md:pb-2xl grid grid-cols-12 gap-y-xl md:gap-x-xl items-end">
+        <div class="col-span-12 lg:col-span-7">
+          <h1 class="font-display text-display-xl-mobile md:text-display-xl text-primary m-0">Nusantara</h1>
+        </div>
+
+        <div class="col-span-12 lg:col-start-8 lg:col-span-5 flex flex-col items-start gap-lg">
+          <p class="font-body text-body-sm text-on-surface/80 max-w-xs text-pretty m-0">
+            More than climate data. We amplify <span class="font-graffiti-marker">urgent frontline realities</span>—from Sumatra’s burning peatlands to Ujung Kulon’s last Javan rhinos.
+          </p>
+          <a href="#pillars" class="group inline-flex items-center gap-md bg-primary text-on-primary rounded-full pl-lg pr-sm py-sm transition-colors hover:bg-canvas">
+            <span class="font-label text-label-lg whitespace-nowrap">Explore What’s Happening</span>
+            <span class="inline-flex items-center justify-center w-lg h-lg rounded-full bg-ink text-on-ink transition-transform group-hover:translate-x-0.5" aria-hidden="true">
+              <span class="material-symbols-outlined text-label-sm">arrow_forward</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <!-- =====================================================================
+       SECTION 2: CORE PILLARS ("For the Forest, For the Animal, For the People")
+       ===================================================================== -->
+  <section id="pillars" class="w-full bg-canvas py-4xl px-lg md:px-2xl">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-3xl">
+        <h2 class="font-headline text-headline-xl text-ink text-balance m-0">What’s happening <span class="font-graffiti-marker">now.</span></h2>
+        <p class="font-body text-body-lg text-muted mt-md m-0">Three frontlines. One <span class="font-graffiti-marker">urgent reality</span> across the archipelago.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-lg items-stretch">
+        <!-- Card 1: FOR THE FOREST -->
+        <article class="bg-primary rounded-md overflow-hidden flex flex-col justify-between border border-ink/5 h-full">
+          <div class="relative h-56 overflow-hidden bg-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrBZoJKHmqZVndNpC35CgE4fg8p3IDw5DLL-M2SWQaQEOPRaqAePGNCh25Soy63mY_oUHm66DWyn6Hwq0hDO2gw6xU83Kri8zYUNTNdQ-zPJ1MZMwBpBAAcX-LngDIZRk3-W0WGxpcNq-NPyoAgszR6Uv_J14Y3wN2xzrVGstCuStB6Wrcx7SFcRJPcRQmJoVbe_3eLHhqV8sbFrgYoXBVsH5YqZF-emfDl3e_ZjMc3Y2fxv1FEyBT00ypYdKKo" alt="Smoky emerald Indonesian peatland forest canopy" class="w-full h-full object-cover">
+            <div class="absolute top-md left-md">
+              <span class="apple-glass-nav inline-flex items-center gap-sm rounded-full px-md py-xs">
+                <span class="w-2 h-2 rounded-full bg-alert"></span>
+                <span class="font-label text-label-xs text-primary uppercase">Active Crisis</span>
+              </span>
+            </div>
+          </div>
+          <div class="p-lg flex flex-col justify-between flex-1 gap-lg">
+            <div>
+              <span class="font-label text-label-xs text-muted uppercase">For the Forest</span>
+              <h3 class="font-title text-title-lg text-ink mt-xs mb-sm text-balance">Protecting Sumatra &amp; Kalimantan’s Lungs.</h3>
+              <p class="font-body text-body-sm text-muted text-pretty m-0">
+                Real-time peatland fire alerts and canopy loss monitoring across Borneo and Sumatra’s most vulnerable carbon sinks.
+              </p>
+            </div>
+            <a href="../climate-map/ClimateMap.html" class="inline-flex items-center gap-xs font-label text-label-lg text-ink hover:text-muted transition-colors">
+              <span>See forest reports</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 2: FOR THE ANIMAL -->
+        <article class="bg-primary rounded-md overflow-hidden flex flex-col justify-between border border-ink/5 h-full">
+          <div class="relative h-56 overflow-hidden bg-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCxfhLKJkTWVsw2BacWHXktT9EeZnKiOwlj-FapDudJ2PNmfEJ4Qj86aVN_syp3QVCzRqZ_y17zBEfOUzPBINVfBx53tn9YQhcmI0CE2qPpRi7RvVojANjTLSigxPLqtndXy2wCY3ETfFEWTb9C4J1tSSuE0V3ADz-1WMM3kCU-KtHLLGz56K8IDbON2WRHzRvvthWemqWO5B_RQ1YDH8Rag6HjeL1uAsEkuYBoLrvUsRBx9Bo_4ia2ce4E0wo" alt="Misty Ujung Kulon tropical jungle habitat" class="w-full h-full object-cover">
+            <div class="absolute top-md left-md">
+              <span class="apple-glass-nav inline-flex items-center gap-sm rounded-full px-md py-xs">
+                <span class="font-label text-label-xs text-primary uppercase">Endangered Habitat</span>
+              </span>
+            </div>
+          </div>
+          <div class="p-lg flex flex-col justify-between flex-1 gap-lg">
+            <div>
+              <span class="font-label text-label-xs text-muted uppercase">For the Animal</span>
+              <h3 class="font-title text-title-lg text-ink mt-xs mb-sm text-balance">Safeguarding Ujung Kulon’s Javan Rhinos.</h3>
+              <p class="font-body text-body-sm text-muted text-pretty m-0">
+                Tracking habitat compression, rising sea levels, and urgent conservation relocation corridors for Indonesia’s rarest wildlife.
+              </p>
+            </div>
+            <a href="#viral" class="inline-flex items-center gap-xs font-label text-label-lg text-ink hover:text-muted transition-colors">
+              <span>Track wildlife stories</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 3: FOR THE PEOPLE -->
+        <article class="bg-primary rounded-md overflow-hidden flex flex-col justify-between border border-ink/5 h-full">
+          <div class="relative h-56 overflow-hidden bg-surface">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB-6RTXPwWIi-pi65uuIJ378G1QIZ2DIdO-KM1fgoM5Xo2tfs1-tib6X24dA8SbK0Zm7OtJYHlcnorDlvWbhq0u-Mmf8_IGKrZH95L-Ip8iO32kJ5NxT0Gk82vFgkn1OghFm_zCjlVKRxm4ue3z2VtceR2X_-6O-qGAwTZUy2s3wD9QGkAsQQ_vCwtadFaTqXs6vprGmVTaF5pPtKC6Z2Xw75-BtcFdlyif1HD6NWr7bPVYk0jl1wiNB9mghLM" alt="Moody coastal wave and sea mist along northern Java" class="w-full h-full object-cover">
+            <div class="absolute top-md left-md">
+              <span class="apple-glass-nav inline-flex items-center gap-sm rounded-full px-md py-xs">
+                <span class="font-label text-label-xs text-primary uppercase">Frontline Communities</span>
+              </span>
+            </div>
+          </div>
+          <div class="p-lg flex flex-col justify-between flex-1 gap-lg">
+            <div>
+              <span class="font-label text-label-xs text-muted uppercase">For the People</span>
+              <h3 class="font-title text-title-lg text-ink mt-xs mb-sm text-balance">Standing With Coastal &amp; Indigenous Voices.</h3>
+              <p class="font-body text-body-sm text-muted text-pretty m-0">
+                Amplifying communities navigating sinking northern Java shorelines and rural farmers confronting prolonged El Niño droughts.
+              </p>
+            </div>
+            <a href="#movements" class="inline-flex items-center gap-xs font-label text-label-lg text-ink hover:text-muted transition-colors">
+              <span>Hear their stories</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 3: LIVE MOVEMENTS & GRASSROOTS ACTIONS ("Aksi yang Sedang Terjadi")
+       ===================================================================== -->
+  <section id="movements" class="w-full bg-canvas px-md">
+    <div class="w-full bg-obsidian text-on-obsidian rounded-lg py-4xl px-xl md:px-2xl">
+      <div class="max-w-5xl mx-auto">
+        <div class="mb-3xl">
+          <h2 class="font-headline text-headline-lg text-primary m-0">Voices in <span class="font-graffiti-marker">motion.</span></h2>
+          <p class="font-body text-body-md text-muted-dark mt-sm max-w-xl m-0">
+            Real actions, petitions, and field movements happening across Indonesia today.
+          </p>
+        </div>
+
+        <div class="flex flex-col">
+          <!-- Row 1 -->
+          <div class="hairline-divider py-xl flex flex-col md:flex-row md:items-center justify-between gap-lg">
+            <div class="flex flex-col gap-sm">
+              <span class="apple-glass-pill self-start rounded-full px-md py-xs font-label text-label-xs text-primary uppercase">
+                Petition • 48,200+ Signatures
+              </span>
+              <h3 class="font-title text-title-sm text-primary m-0">
+                Halt Industrial Expansion Near Ujung Kulon Corridor
+              </h3>
+            </div>
+            <a href="#viral" class="self-start md:self-center inline-flex items-center gap-sm bg-primary text-on-primary rounded-full px-lg py-sm font-label text-label-lg hover:bg-canvas transition-colors whitespace-nowrap">
+              <span>Join Action</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="hairline-divider py-xl flex flex-col md:flex-row md:items-center justify-between gap-lg">
+            <div class="flex flex-col gap-sm">
+              <span class="apple-glass-pill self-start rounded-full px-md py-xs font-label text-label-xs text-primary uppercase">
+                Field Relief • Kalimantan
+              </span>
+              <h3 class="font-title text-title-sm text-primary m-0">
+                Community Peatland Fire Watch &amp; Rapid Response
+              </h3>
+            </div>
+            <a href="#viral" class="apple-glass-pill self-start md:self-center inline-flex items-center gap-sm text-primary rounded-full px-lg py-sm font-label text-label-lg hover:bg-primary/20 transition-colors whitespace-nowrap">
+              <span>Support</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="py-xl flex flex-col md:flex-row md:items-center justify-between gap-lg">
+            <div class="flex flex-col gap-sm">
+              <span class="apple-glass-pill self-start rounded-full px-md py-xs font-label text-label-xs text-primary uppercase">
+                Youth Movement • Jakarta &amp; Semarang
+              </span>
+              <h3 class="font-title text-title-sm text-primary m-0">
+                Mangrove Restoration &amp; Coastal Defense Drive
+              </h3>
+            </div>
+            <a href="#viral" class="apple-glass-pill self-start md:self-center inline-flex items-center gap-sm text-primary rounded-full px-lg py-sm font-label text-label-lg hover:bg-primary/20 transition-colors whitespace-nowrap">
+              <span>Participate</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 4: VIRAL & TRENDING STORIES ("Berita yang Sedang Viral")
+       ===================================================================== -->
+  <section id="viral" class="w-full bg-canvas py-4xl px-lg md:px-2xl">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-2xl">
+        <h2 class="font-headline text-headline-lg text-ink m-0">Trending &amp; <span class="font-graffiti-marker">Viral</span> Now.</h2>
+
+        <div role="tablist" aria-label="Story Filters" class="inline-flex flex-wrap items-center gap-xs bg-primary rounded-full p-xs border border-ink/5">
+          <button type="button" data-filter="all" class="viral-tab rounded-full px-md py-xs font-label text-label-sm bg-ink text-on-ink transition-colors">All</button>
+          <button type="button" data-filter="social" class="viral-tab rounded-full px-md py-xs font-label text-label-sm text-muted hover:text-ink transition-colors">Viral on Social</button>
+          <button type="button" data-filter="alerts" class="viral-tab rounded-full px-md py-xs font-label text-label-sm text-muted hover:text-ink transition-colors">Urgent Alerts</button>
+          <button type="button" data-filter="reports" class="viral-tab rounded-full px-md py-xs font-label text-label-sm text-muted hover:text-ink transition-colors">Field Reports</button>
+        </div>
+      </div>
+
+      <!-- Asymmetric Featured Editorial Grid (60% Left / 40% Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-stretch">
+        <!-- Left Large Featured Card (24px squircle radius) -->
+        <article class="lg:col-span-7 relative rounded-xl overflow-hidden bg-obsidian min-h-[460px] flex flex-col justify-between p-xl">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCMG1XorJvr1V64AI4Ssc7CO-rb-QiQWTajHEHsKNln-Yp4SApuvvg69XNpk0nfcMZ5a7-BzD8-xcPi7YaOOrxhv-lF0hfuh_IWFsy5ZjJ1d-ObHM1e2oevtUZ7Uy4CQyt7FY66vgB4fUki5jrZPP-YICx3l43zUQWEWYVtOy16_dbI15aw2ZhS4KiCO6YZn7e6_gwbvnj8FVPSaQtbtD0IMG5EW1_pqxPKU3erE0AoAzJuRcZ9Ce2OncXw" alt="Misty Ujung Kulon rainforest corridor at twilight" class="absolute inset-0 w-full h-full object-cover pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/55 to-transparent pointer-events-none"></div>
+
+          <div class="relative z-10 flex items-center justify-between">
+            <span class="apple-glass-nav inline-flex items-center gap-sm rounded-full px-md py-xs">
+              <span class="w-2 h-2 rounded-full bg-alert"></span>
+              <span class="font-label text-label-xs text-primary uppercase">Viral • 1.2M Views</span>
+            </span>
+          </div>
+
+          <div class="relative z-10 flex flex-col gap-md">
+            <h3 class="font-headline text-headline-bold text-primary text-balance m-0">
+              Why Javan Rhino Relocation in Ujung Kulon Is Sparking National Debate
+            </h3>
+            <p class="font-body text-body-sm text-on-surface/80 max-w-xl text-pretty m-0">
+              Conservationists and local communities weigh emergency sanctuary expansion against rising coastal risks in West Java’s last intact rhino stronghold.
+            </p>
+            <div class="flex items-center justify-between pt-sm">
+              <span class="font-label text-label-sm text-on-surface/70">2 hours ago</span>
+              <button type="button" class="inline-flex items-center gap-sm bg-primary text-on-primary rounded-full px-lg py-sm font-label text-label-lg hover:bg-canvas transition-colors">
+                <span>Read Full Context</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Right Stacked Feed (3 crisp 20px white cards) -->
+        <div class="lg:col-span-5 flex flex-col gap-md justify-between">
+          <article class="viral-card bg-primary rounded-md p-lg border border-ink/5 flex flex-col justify-between gap-md flex-1" data-cat="social">
+            <div class="flex items-center justify-between">
+              <span class="font-label text-label-xs text-alert-ink uppercase">Viral Thread</span>
+              <span class="font-label text-label-sm text-muted">4h ago</span>
+            </div>
+            <h4 class="font-title text-title-sm text-ink text-balance m-0">
+              Satellite timelapse reveals 5 years of coastline loss in Demak
+            </h4>
+          </article>
+
+          <article class="viral-card bg-primary rounded-md p-lg border border-ink/5 flex flex-col justify-between gap-md flex-1" data-cat="alerts">
+            <div class="flex items-center justify-between">
+              <span class="font-label text-label-xs text-alert-ink uppercase">Breaking Alert</span>
+              <span class="font-label text-label-sm text-muted">6h ago</span>
+            </div>
+            <h4 class="font-title text-title-sm text-ink text-balance m-0">
+              Hotspot surge detected in Central Kalimantan peatlands this week
+            </h4>
+          </article>
+
+          <article class="viral-card bg-primary rounded-md p-lg border border-ink/5 flex flex-col justify-between gap-md flex-1" data-cat="reports">
+            <div class="flex items-center justify-between">
+              <span class="font-label text-label-xs text-muted uppercase">Public Voice</span>
+              <span class="font-label text-label-sm text-muted">1d ago</span>
+            </div>
+            <h4 class="font-title text-title-sm text-ink text-balance m-0">
+              Students across 12 Indonesian cities rally for cleaner air policies
+            </h4>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       SECTION 5: MINIMALIST APPLE-STYLE FOOTER
+       ===================================================================== -->
+  <footer class="w-full bg-canvas border-t border-ink/10 py-2xl px-lg md:px-2xl">
+    <div class="max-w-6xl mx-auto flex flex-col gap-xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-lg">
+        <div>
+          <span class="font-title text-title-md text-ink tracking-tight">ICLIMATE</span>
+          <p class="font-body text-body-sm text-muted mt-xs m-0">Amplifying Indonesia’s environmental truth.</p>
+        </div>
+
+        <nav aria-label="Footer Navigation" class="flex flex-wrap items-center gap-lg">
+          <a href="../climate-map/ClimateMap.html" class="font-label text-label-sm text-muted hover:text-ink transition-colors">Map</a>
+          <a href="#pillars" class="font-label text-label-sm text-muted hover:text-ink transition-colors">For the Forest</a>
+          <a href="#pillars" class="font-label text-label-sm text-muted hover:text-ink transition-colors">For the Animal</a>
+          <a href="#pillars" class="font-label text-label-sm text-muted hover:text-ink transition-colors">For the People</a>
+          <a href="#movements" class="font-label text-label-sm text-muted hover:text-ink transition-colors">Submit a Story</a>
+        </nav>
+      </div>
+
+      <div class="pt-md border-t border-ink/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-sm">
+        <span class="font-label text-label-sm text-muted">© 2026 ICLIMATE Nusantara. Independent environmental intelligence.</span>
+        <span class="font-label text-label-sm text-muted">Jakarta · Kalimantan · Ujung Kulon</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const tabs = document.querySelectorAll('.viral-tab');
+      const cards = document.querySelectorAll('.viral-card');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const filter = tab.getAttribute('data-filter');
+          tabs.forEach(function (t) {
+            t.classList.remove('bg-ink', 'text-on-ink');
+            t.classList.add('text-muted');
+          });
+          tab.classList.remove('text-muted');
+          tab.classList.add('bg-ink', 'text-on-ink');
+
+          cards.forEach(function (card) {
+            if (filter === 'all' || card.getAttribute('data-cat') === filter) {
+              card.style.opacity = '1';
+            } else {
+              card.style.opacity = '0.35';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+
+
+</body></html>
